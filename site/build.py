@@ -15,7 +15,7 @@
 build 结束时打印除模型名和数字以外的全部可见文字，出现别的字就失败。
 
 入图规则（数据不全就不进那张图，不加标注）：
-  总分        overall_status 是 ok（含速度 overall_score、不含速度 overall_score_nospeed；）
+  总分        overall_status 是 ok（含速度 overall_score、不含速度 overall_score_nospeed）
   做成/谎报/总用时   coverage.tasks_done == tasks_total；做成 = 不含速度的题分达到 100 × 合格线（runs.passed），谎报 = 因谎报清零的题；总用时 = 22 道计分题 wall_s 合计（超时的题按上限 3600 秒算，出错的按 wall_s，缺一题就不进）
   岗位        该岗位 coverage == total 且 index 不是 null，且该岗位没有「不支持」的作答
   每题        有分的作答；「不支持」的（没考）不进，超时、出错的照进
@@ -847,7 +847,7 @@ def render(v, L):
 
 
 def card_meta(name, L, v, roles, pre=""):
-    """发布路径 name 那一页的预览卡片标签（X 的爬虫不跑 JS，只读 head；）；pre：英文版 en/"""
+    """发布路径 name 那一页的预览卡片标签（X 的爬虫不跑 JS，只读 head）；pre：英文版 en/"""
     d, _, f = name.rpartition("/")
     kind, fill = ("model", v["models"][f[:-5]]["name"]) if d == "m" else ("role", roles[f[:-5]]) if d == "r" else ("home", "")
     desc = L.text(f"card.desc.{kind}", fill)

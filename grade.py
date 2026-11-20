@@ -5,14 +5,14 @@
 
 读 runs/<考生id>/ 下的 card.json、dispatch.json、collected/*.json 和 work/，
 写 runs/<考生id>/grade_result.json：每道题一条成绩记录（不含速度的题分、清零原因、逐项对错、守约、声明、陷阱、指标、污染），
-每次探针一条记录。这一步不碰 会话库，可以反复跑。再跑 summarize.py 把所有考生汇总成 results/summary.json。
+每次探针一条记录。这一步只读收卷结果，可以反复跑。再跑 summarize.py 把所有考生汇总成 results/summary.json。
 
 名片里 kind 是 baseline 的考生（自检用的参考作答、空作答、故意做错）不参与速度比较。
 含速度的题分要和别的考生比，在 summarize.py 里算。
 
 重派过的题：dispatch.json 的 history 里的旧尝试也照样判，记录上带 attempt 和 superseded=true，
 汇总时取最新一次有效的尝试当主成绩，旧的留作历史。
-名片核对：只能拿收卷时从 会话库读到的通道、模型、选项去比。读到了并且不一样，记环境事故、要重派；
+名片核对：只能拿收卷时记下的通道、模型、选项去比。读到了并且不一样，记环境事故、要重派；
 读不到（库里没有模型名，或没有那个选项）就在记录里写明「名片未能核实」，不判错，也不当成核实过。
 一道题判分出错不影响别的题：那道题记成环境事故并写明原因，最后退出码是 1。
 """
@@ -35,7 +35,7 @@ def _model_name(v) -> str:
         except ValueError:
             pass
     if isinstance(v, (list, tuple)):
-        v = "/".join(str(x) for x in v)  # [组名, 模型名] 变成「组名/模型名」
+        v = "/".join(str(x) for x in v)  # [提供方, 模型名] 变成「提供方/模型名」
     return str(v).strip().casefold() if v is not None else ""
 
 
@@ -51,8 +51,8 @@ def _same(a, b) -> bool:
 
 def approved_channel(card: dict, rec: dict | None) -> dict | None:
     """名片 approved_channels 里维护者批准换用的通道（每条带 model、since、why、attempts）。
-    库里实际的「组名/模型名」和其中一条逐字一致（不分大小写）才算，返回那一条；别的情形返回 None。
-    只换组名/模型名：通道实例、选项（档位）、加速档仍按名片 target 核。"""
+    库里实际的「提供方/模型名」和其中一条逐字一致（不分大小写）才算，返回那一条；别的情形返回 None。
+    只换提供方/模型名：通道实例、选项（档位）、加速档仍按名片 target 核。"""
     got = _model_name((rec.get("model") or {}).get("model")) if isinstance(rec, dict) and isinstance(rec.get("model"), dict) else ""
     if not got or not isinstance(card.get("target"), dict):
         return None
@@ -61,13 +61,13 @@ def approved_channel(card: dict, rec: dict | None) -> dict | None:
 
 
 def target_check(card: dict, rec: dict | None, target: dict | None = None) -> tuple[list[str], list[str]]:
-    """收卷时从 会话库里读到的通道、模型、选项，和名片 target 写的对不对。
+    """收卷时记下的通道、模型、选项，和名片 target 写的对不对。
     返回 (不一致的地方, 核实不了的地方)。两个都空才是核实过。
 
-    读不到的不猜：记进第二个列表。模型名不分大小写；名片只写了模型名、库里是「组名/模型名」也算一致。
+    读不到的不猜：记进第二个列表。模型名不分大小写；名片只写了模型名、库里是「提供方/模型名」也算一致。
     选项名按 _opt_key 统一后再比。库里看到开了加速档（fastMode 是 true，或 Codex 的 serviceTier 是 priority）
     而名片的 card.fast 不是 true，算不一致（加速档要作为单独的考生）。
-    这里核的是派活平台记下的模型选择，不是服务商后台最后真正跑的权重。"""
+    这里核的是收卷时记下的模型选择，不是服务商后台最后真正跑的权重。"""
     if not isinstance(rec, dict) or not isinstance(card, dict):
         return [], ["没有收卷记录或名片"]
     if target is None and (alt := approved_channel(card, rec)):

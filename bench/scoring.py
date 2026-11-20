@@ -186,7 +186,7 @@ def speed_bases(rows: list[dict], cfg: dict) -> dict[str, float]:
 
 def relative_speed(t: float | None, base: float, cfg: dict) -> float:
     """速度分 = 1 − x^speed_exponent，x = (t − 基准) ÷ (speed_zero_s − 基准)，x 夹在 0 到 1：
-    和最快的差不多时基本不扣，越接近 speed_zero_s 扣得越狠（维护者 2026-11-17 定，取代原先的对数曲线）。"""
+    和最快的差不多时基本不扣，越接近 speed_zero_s 扣得越狠。"""
     if not common.is_number(t):   # 没有用时，或大到没法当浮点数算的数（10**400 这种）
         return 0.0
     sc = cfg["score"]
@@ -195,7 +195,7 @@ def relative_speed(t: float | None, base: float, cfg: dict) -> float:
 
 
 def with_speed(score_nospeed: float, speed: float) -> float:
-    """含速度的题分 = 不含速度的题分 × 速度分（不保底，）。"""
+    """含速度的题分 = 不含速度的题分 × 速度分（不保底）。"""
     return score_nospeed * speed
 
 

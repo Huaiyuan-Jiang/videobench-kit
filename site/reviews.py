@@ -1,6 +1,6 @@
 """VideoBench 评价正文。detail.py 把它放进模型详情页。
 
-正文取自 评价/评语/<考生>.json，原样上页面：one_line、roles[].text、working_style、honesty、
+正文取自 data/reviews/zh/<考生>.json（英文 data/reviews/en/），原样上页面：one_line、roles[].text、working_style、honesty、
 dispatch_advice、confidence。channel 和 spot_checks 不上页面。岗位分和题分不在这里，在详情页下面的数据里。
 评语目录多了文件、summary 里也有这个考生，重新 build 就会出现。
 reviews.html（旧评价页地址）现在是跳转页：#考生 跳到 m/<考生>.html，没有这页就回成绩页。

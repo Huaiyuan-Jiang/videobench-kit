@@ -11,7 +11,7 @@ from pathlib import Path
 from . import common
 
 # 考生材料里不该出现的固定词。bench 根目录的几种写法在 fixed_tokens() 里加。
-FIXED_TOKENS = ("VideoBench", "DelegateBench", "ModelBench", "grading/", "grading\\", "grader.py",
+FIXED_TOKENS = ("VideoBench", "grading/", "grading\\", "grader.py",
                 "make_reference", "make_wrong", "selfcheck", "leak_tokens")
 # 文件名里的版本、期数记号
 VERSION_MARK = re.compile(

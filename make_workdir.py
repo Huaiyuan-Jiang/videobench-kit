@@ -36,7 +36,7 @@ CHANNEL_NOTES = Path(__file__).resolve().parent / "channel_notes"
 CARD_TEMPLATE = {
     "_doc": ("考生名片。填好以后再跑 make_workdir.py。label 是全名，short_label 是榜单页上用的短名字（不超过 10 个字）。"
              "title_prefix 是线程标题开头的模型短名，比如 Sonnet。target 是调用考生时用的通道、模型和选项，"
-             "照着 orchestrator_capabilities 给的填，fast 档不开。capabilities 里填 false 的能力，需要它的题不派、"
+             "按考生所用工具的实际能力填，fast 档不开。capabilities 里填 false 的能力，需要它的题不派、"
              "记成不支持。card 是榜单页名片表里显示的内容，取不到的留 null。"),
     "id": "", "label": "", "short_label": "", "vendor": "", "color_key": "other", "kind": "examinee",
     "title_prefix": "",
@@ -81,11 +81,11 @@ def load_card(examinee: str) -> tuple[dict | None, list[str]]:
         p.append("capabilities 里 " + "、".join(CAPABILITIES) + " 都要填 true 或 false")
     tgt = card.get("target")
     model = tgt.get("model") if isinstance(tgt, dict) else None
-    # 模型一般是字符串；有的通道是 [组名, 模型名] 的列表，也认
+    # 模型一般是字符串；也认 [提供方, 模型名] 这样的列表
     model_ok = (isinstance(model, str) and bool(model.strip())) or (
         isinstance(model, list) and bool(model) and all(isinstance(x, str) and x.strip() for x in model))
     if card.get("kind") != "baseline" and not model_ok:
-        p.append("target.model 没填（字符串，或者 有的通道那样的 [组名, 模型名]）")
+        p.append("target.model 没填（字符串，或者 [提供方, 模型名] 这样的列表）")
     opts = (tgt or {}).get("options") if isinstance(tgt, dict) else None
     if isinstance(opts, dict) and is_fast(opts) and (card.get("card") or {}).get("fast") is not True:
         p.append("target.options 里开了加速档（fastMode 是 true，或 serviceTier 是 priority），但 card.fast 不是 true。"
@@ -104,7 +104,7 @@ def missing_needs(needs: list, caps: dict) -> list[str]:
 def entry(kind: str, key: str, batch: str, examinee: str, card: dict, prompt: str, work: Path | None,
           extra: dict, attempt: int = 1) -> dict:
     tag = workdir.tag_for(batch, examinee, key, attempt)
-    title = f"{card['title_prefix']}: 小活 {tag}"
+    title = f"{card['title_prefix']}: VideoBench {tag}"
     if (note := card.get("channel_note")) and prompt:  # 通道说明：只有名片声明了的考生，接在题面后面
         prompt += "\n\n" + (CHANNEL_NOTES / f"{note}.txt").read_text(encoding="utf-8").strip().replace(
             "{title}", title).replace("{tag}", tag)

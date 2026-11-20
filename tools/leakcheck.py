@@ -4,7 +4,7 @@
   python -B tools/leakcheck.py --staged      scan what is staged (index content) and the commit identity
   python -B tools/leakcheck.py --message F   scan a commit message file
 
-Looks for user-home paths, e-mail addresses, UUIDs, common secret formats and image metadata.
+Looks for user-home paths, paths on data drives (X: is the placeholder used in examples), e-mail addresses, UUIDs, common secret formats and image metadata.
 The commit author and committer must use a GitHub noreply address.
 """
 from __future__ import annotations
@@ -18,7 +18,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SKIP_DIRS = {".git", "__pycache__", "out", "runs", "results", ".pytest_cache"}
 PATTERNS = [
     ("local path", re.compile(r"(?i)(?<![A-Za-z0-9])[A-Za-z]:[\\/]+(?:Users|Documents and Settings)(?![A-Za-z])"
-                              r"|(?<![\w.])/(?:Users|home)/[A-Za-z0-9_.-]+|App[D]ata|(?<![A-Za-z0-9])[D-Z]:[\\/]+AI(?![A-Za-z])")),
+                              r"|(?<![\w.])/(?:Users|home)/[A-Za-z0-9_.-]+|App[D]ata"
+                              r"|(?<![A-Za-z0-9])[D-WYZ]:[\\/]+\w")),  # any path on a data drive; X: is the placeholder
     ("email", re.compile(r"[\w.+-]+@[\w-]+\.[A-Za-z]{2,}")),
     ("uuid", re.compile(r"(?i)(?<![0-9a-f])[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}(?![0-9a-f])")),
     ("secret", re.compile(r"sk-[A-Za-z0-9_-]{20,}|gh[pousr]_[A-Za-z0-9]{30,}|github_pat_\w{20,}|AKIA[0-9A-Z]{16}"

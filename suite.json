@@ -8,11 +8,6 @@
     {
       "id": "SORT",
       "label": "素材归类",
-      "pipeline_steps": [
-        3,
-        8,
-        9
-      ],
       "needs": [
         "vision"
       ]
@@ -20,9 +15,6 @@
     {
       "id": "FIND",
       "label": "找镜头认人",
-      "pipeline_steps": [
-        9
-      ],
       "needs": [
         "vision"
       ]
@@ -30,9 +22,6 @@
     {
       "id": "VO",
       "label": "口播精剪",
-      "pipeline_steps": [
-        6
-      ],
       "needs": [
         "text"
       ]
@@ -40,9 +29,6 @@
     {
       "id": "CUT",
       "label": "主剪决定",
-      "pipeline_steps": [
-        11
-      ],
       "needs": [
         "text"
       ]
@@ -50,10 +36,6 @@
     {
       "id": "TASTE",
       "label": "审美判断",
-      "pipeline_steps": [
-        11,
-        18
-      ],
       "needs": [
         "vision"
       ]
@@ -61,10 +43,6 @@
     {
       "id": "QC",
       "label": "审片",
-      "pipeline_steps": [
-        15,
-        17
-      ],
       "needs": [
         "vision",
         "audio"
@@ -73,9 +51,6 @@
     {
       "id": "FIX",
       "label": "改片",
-      "pipeline_steps": [
-        18
-      ],
       "needs": [
         "text"
       ]
@@ -83,9 +58,6 @@
     {
       "id": "SUB",
       "label": "字幕",
-      "pipeline_steps": [
-        13
-      ],
       "needs": [
         "text"
       ]
@@ -93,7 +65,6 @@
     {
       "id": "SAMPLE",
       "label": "样题（底座自测用）",
-      "pipeline_steps": [],
       "needs": [
         "text",
         "vision"

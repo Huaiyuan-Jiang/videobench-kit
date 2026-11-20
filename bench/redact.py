@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parent.parent  # 题库目录。这个文件不�
 
 
 def _norm(path: str) -> str:
-    """正斜杠、盘符大写、/d/x 和 /mnt/d/x 转成 D:/x。只为列出一个目录的几种写法用。"""
+    """正斜杠、盘符大写、/x/y 和 /mnt/x/y 转成 X:/y。只为列出一个目录的几种写法用。"""
     s = str(path).strip().strip('"').strip("'").replace("\\", "/")
     m = re.match(r"^/(?:(?:mnt|cygdrive)/)?([a-zA-Z])(?:/|$)", s)
     if m:

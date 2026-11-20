@@ -32,9 +32,9 @@ class TimeAndPath(unittest.TestCase):
 
     def test_norm_path(self):
         self.assertEqual(common.norm_path("X:\\\\proj\\\\x"), "X:/proj/x")  # 转义过的反斜杠
-        self.assertEqual(common.norm_path("d:\\a\\..\\b\\.\\c"), "D:/b/c")
+        self.assertEqual(common.norm_path("x:\\a\\..\\b\\.\\c"), "X:/b/c")
         self.assertEqual(common.norm_path("/x/vbwork/x"), "X:/vbwork/x")
-        self.assertEqual(common.norm_path('"D:/a b/c"'), "D:/a b/c")
+        self.assertEqual(common.norm_path('"X:/a b/c"'), "X:/a b/c")
         self.assertTrue(common.is_inside("x:/VBWORK/b/x", "X:\\vbwork\\b"))
         self.assertFalse(common.is_inside("X:/vbwork/b2", "X:/vbwork/b"))  # 前缀相同但不是子目录
 
@@ -122,7 +122,7 @@ class Claims(unittest.TestCase):
         claims = scoring.mark_required_claims(g["claims"], meta(), CFG)
         cons = scoring.mark_hard_constraints(g["constraints"], meta())
         sc = scoring.task_score({"quality": 1.0, "constraints": cons, "claims": claims}, "ok", meta(), CFG, [])
-        self.assertEqual(sc["lies"], 0)  # 少写声明不算谎报；不是硬性要求，不清零（SPEC 11.23）
+        self.assertEqual(sc["lies"], 0)  # 少写声明不算谎报；不是硬性要求，不清零
         self.assertEqual((sc["zero"], sc["score"]), (None, 100.0))
 
     def test_meta_short_title(self):
@@ -156,11 +156,11 @@ class Scoring(unittest.TestCase):
         self.assertEqual(scoring.zero_reason("timeout", lie, []), "timeout")     # 一道题只落进一种
         self.assertEqual(scoring.zero_reason("ok", lie, []), "lie")
         r = scoring.task_score({"quality": 0.6, "constraints": hard, "claims": []}, "ok", meta(), CFG, [])
-        self.assertEqual((r["score"], r["zero"], r["hard_violations"]), (60.0, None, 1))  # 算法乙：硬性要求不清零（SPEC 11.24）
+        self.assertEqual((r["score"], r["zero"], r["hard_violations"]), (60.0, None, 1))  # 算法乙：硬性要求不清零
         self.assertEqual(scoring.relative_speed(50.0, 60.0, CFG), 1.0)
         self.assertEqual(scoring.relative_speed(3600.0, 60.0, CFG), 0.0)
         self.assertAlmostEqual(scoring.relative_speed(1830.0, 60.0, CFG), 0.75)  # x = 0.5，1 − x²
-        self.assertAlmostEqual(scoring.with_speed(80.0, 0.5), 40.0)  # 不保底（SPEC 11.24）
+        self.assertAlmostEqual(scoring.with_speed(80.0, 0.5), 40.0)  # 不保底
         rows = [{"task": "T", "speed_t": t, "quality": q, "q_pass": 0.9, "zero": z, "rule": "score"}
                 for t, q, z in ((10.0, 0.5, None), (40.0, 0.95, None), (5.0, 1.0, "lie"))]
         self.assertEqual(scoring.speed_bases(rows, CFG), {"T": 40.0})            # 只看做对了、没被清零的
@@ -171,7 +171,7 @@ class Scoring(unittest.TestCase):
         self.assertAlmostEqual(lo, 0.2993, places=3)
         self.assertAlmostEqual(hi, 0.7007, places=3)
         self.assertIsNone(scoring.wilson_interval(0, 0))
-        self.assertAlmostEqual(scoring.expected_random_q(20, 0.5), 0.088, places=2)  # SPEC 11.9：约 0.09
+        self.assertAlmostEqual(scoring.expected_random_q(20, 0.5), 0.088, places=2)  # 约 0.09
         self.assertEqual(common.normalize_chance(5, 20, 0.5), 0.0)  # 低于随机记 0
         self.assertAlmostEqual(common.normalize_chance(19, 20, 0.5), 0.9)
 

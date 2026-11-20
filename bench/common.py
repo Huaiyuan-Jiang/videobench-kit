@@ -43,7 +43,7 @@ TASTE_KINDS = ("open_book", "closed_book", "candidate_top1")
 VERDICTS = ("supported", "contradicted", "unverifiable")
 REPORT_STATUSES = ("done", "partial", "blocked")
 
-#  的十种陷阱，名字固定，榜单页按它分组。
+# 十种陷阱，名字固定，榜单页按它分组。
 TRAP_TYPES = {
     "silent_clip": "片段没声音",
     "wrong_timecode": "简报给的时间码是错的",
@@ -97,7 +97,7 @@ BEIJING = _beijing_tz()
 def parse_ts(value: Any) -> datetime | None:
     """把 ISO 时间串解析成带时区的 datetime。空值、解析不了返回 None。
 
-    会话库里的时间都是带 Z 的 UTC；没带时区的串按 UTC 处理。"""
+    收卷记录里的时间都是带 Z 的 UTC；没带时区的串按 UTC 处理。"""
     if isinstance(value, datetime):
         return value if value.tzinfo else value.replace(tzinfo=timezone.utc)
     if not isinstance(value, str) or not value.strip():
@@ -387,7 +387,7 @@ def match_any(rel: str, globs: list[str]) -> bool:
 
 
 def norm_path(path: str) -> str:
-    """路径规范化成便于比较的样子：正斜杠、去掉 . 和 ..、盘符大写、/d/x 写法转成 D:/x。
+    """路径规范化成便于比较的样子：正斜杠、去掉 . 和 ..、盘符大写、/x/y 写法转成 X:/y。
 
     不访问磁盘。大小写不动，比较时用 path_key。"""
     s = str(path).strip().strip('"').strip("'").replace("\\", "/")
@@ -970,7 +970,7 @@ def frame_evidence(path: str, ok: bool, detail: str = "", claimed_t: Any = None,
 
 
 def normalize_chance(correct: float, n: int, chance: float = 0.5) -> float:
-    """ 的归一化：(正确率 − 乱选正确率) ÷ (1 − 乱选正确率)，低于 0 记 0。n 为 0 返回 0。"""
+    """归一化：(正确率 − 乱选正确率) ÷ (1 − 乱选正确率)，低于 0 记 0。n 为 0 返回 0。"""
     if n <= 0 or not 0 <= chance < 1:
         return 0.0
     return max(0.0, min(1.0, (correct / n - chance) / (1.0 - chance)))
@@ -1043,7 +1043,7 @@ def generic_checks(work: Path | str, meta: dict, manifest: dict[str, str], repor
                    report_problem: str, log: dict | None, source_links: list[str] | None = None) -> dict:
     """所有题通用的守约、声明核对、看图证据和编码检查。
 
-    log 是采集器从 会话记录里整理出的工具日志摘要（见 bench.metrics.build_log），没有就给 None。
+    log 是采集器从会话记录里整理出的工具日志摘要，离线收卷时是 None。
     source_links：收卷时在考生原目录里发现的链接和目录联接（收卷副本里不拷它们，所以要另外告诉这里）。
     返回 {constraints, claims, evidence_frames, diff, encoding, refuted_checks}。"""
     work = Path(work)
