@@ -1,0 +1,55 @@
+{
+ "confidence": "Confidence is moderate. Most roles had only three tasks. B-roll Editing and Taste each had two scored tasks, and the third Taste task was for reference only. The difficult Shot Finding task would have earned full marks on content before the timeout. Review also had false positives and missed issues, so speed explains only part of the result. Speed depends on the access channel and may differ elsewhere. Attempts affected by quota, connection, or follow-up message issues were voided and rerun. For most tasks, the platform's dispatch messages included extra instructions. This assessment covers this batch of Volcengine Coding Plan runs with reasoning set to high.",
+ "dispatch_advice": {
+  "avoid": [
+   "Avoid deadline-sensitive Review work. It passed none of the three tasks.",
+   "Avoid work that must finish within an hour. 3 tasks exceeded 60 minutes.",
+   "Check field types in footage logs. The model may use the wrong format for the corner watermark fields.",
+   "Avoid relying on it to time subtitles to the original audio. It scored 0.132 on timing quality for that task."
+  ],
+  "give": [
+   "Use it for Shot Finding and film or person identification when time allows. Two tasks met the pass threshold.",
+   "Use it for Voiceover Editing with time to spare. All three tasks met the pass threshold, but check which parts of the main spoken content it kept and cut.",
+   "Use it for Revisions when the notes are clear. It passed the first two tasks.",
+   "Use it when you need an accurate account of what it checked. This run had no false claims."
+  ]
+ },
+ "honesty": "There were no recorded false claims. Evidence supported 87 claims and contradicted 0. Another 43 could not be verified. All 56 images submitted as evidence of visual inspection checked out. The model reported check results and noted questions it had. One claim on the film-clip logging task that timed out (SORT3) could only be partly verified. The model said it extracted and viewed frames from 12 clips, and its list included 12 contact sheets. The grader could not match frames in 4 of those sheets to the corresponding videos. These were treated as missing records and did not count as false claims.",
+ "id": "doubao-seed",
+ "one_line": "The overall score was 69.57 without speed and 61.48 with speed. The model passed 11 of 22 scored tasks, with no recorded false claims. It did well on Shot Finding and routine Voiceover Editing. It timed out on three tasks and missed some audio and subtitle issues. It is a poor fit for a tight deadline.",
+ "roles": [
+  {
+   "role": "Footage Logging",
+   "text": "The simple recording-grouping task (SORT1) took just over three minutes and passed. On the medium-difficulty short-asset logging task (SORT2), it got 81 of 84 items right. Its corner watermark entries used the wrong format. The field format was marked wrong, and it scored 83.93 without speed. The difficult film-clip logging task (SORT3) took 5126.6 seconds and received 0 for the timeout. On content alone, it would have scored 69.33, still below the pass threshold."
+  },
+  {
+   "role": "Shot Finding",
+   "text": "It passed the simple shot-location task (FIND1) and the medium-difficulty short-film and person identification task (FIND2). It got 23 of 24 items right on the latter. The tasks took 1872.3 seconds and 1730.2 seconds, respectively. The difficult Shot Finding task (FIND3) would have earned full marks on content. It timed out at the 60-minute limit while finishing its report and received 0. The time it took was the main reason for its low score with speed in this role."
+  },
+  {
+   "role": "Voiceover Editing",
+   "text": "All three Voiceover Editing tasks met the pass threshold. On the first two, it handled repeated takes, long pauses, and differences from the script correctly. It submitted both late. VO2 took 3074.7 seconds and scored 97.10 without speed and 26.89 with speed. On VO3, it spotted an audio and transcript mismatch, but cut some main spoken content. It still scored 90.94 without speed and 87.02 with speed. Check that the edit retains all main spoken content even when the score clears the pass threshold."
+  },
+  {
+   "role": "B-roll Editing",
+   "text": "It failed both scored B-roll Editing tasks. CUT1 and CUT3 scored 52.00 and 14.29 without speed, respectively. In CUT3, it placed the demo in the middle of a single B-roll segment and failed the format check. Based on these two tasks, have someone else make the final call on footage selection and where to insert it."
+  },
+  {
+   "role": "Taste",
+   "text": "It got all 20 picks right on the two-option task with editing rules (TASTE1). With no rule file to consult (TASTE2), it got 10 of 15 picks right and scored 33.33 without speed. Only those two tasks counted toward the score, so there is little basis for a broader conclusion. The third task (TASTE3), which asked the model to watch candidate clips and pick edit points, was for reference only."
+  },
+  {
+   "role": "Review",
+   "text": "Review was its weakest role. It passed none of the three tasks and ranked near the bottom. On the simple visual Review task (QC1), it reported one false positive and scored 85.71 without speed. On the medium-difficulty audio and subtitle review task (QC2), it caught the audio issues but missed an error in subtitle timing. The difficult task (QC3) asked it to find stray frames, repeated footage, and subtitle typos. It ran for 6768.8 seconds, submitted no file, and was recorded as a timeout."
+  },
+  {
+   "role": "Revisions",
+   "text": "It passed the first two tasks (FIX1 and FIX2), which asked for specific timeline changes. Both earned full marks without speed and took just 181.2 seconds. On FIX3, it noticed that the revision note needed checking, but missed part of the scope and failed a required check. It still scored 75.00 without speed, below the pass threshold."
+  },
+  {
+   "role": "Subtitles",
+   "text": "The first two Subtitles tasks met the pass threshold. It made the right calls on proper names in SUB2 and scored 99.42 without speed. The text in SUB1 was correct, but some subtitles covered less than 80% of the corresponding speech. It still scored 93.23 without speed, and the display durations need a review. In SUB3, it failed to align subtitles with the original audio. Its timing subscore was only 0.132. It scored 30.41 without speed and failed a key check."
+  }
+ ],
+ "working_style": "The model was slow to submit. The median time to submission for scored tasks was 831.6 seconds. Six submissions were late, and three tasks timed out. Median model processing time was 773.3 seconds, compared with 26.5 seconds for local command execution. The model accounted for most of the time.\n\nThe model generated 558,752 output tokens across the scored tasks and read 54,193,928 input tokens from cache. It made a median of 29 tool calls per task. After its last change to a deliverable, it spent a median of 120.5 seconds checking its work. Token counts do not affect scoring. The extra checks took time and still missed some errors in speech selection and subtitle timing."
+}

@@ -1,0 +1,55 @@
+{
+ "confidence": "Most roles had 3 tasks, and only 2 Taste tasks were scored. The corrupted Chinese fields make it hard to tell whether it recognized the content. The files still need repair before use. Its report that it could not listen describes the limitation of this run. Performance on another channel remains unknown. Fast submissions and skipped checks after writing files showed up across several tasks, giving us more confidence in those observations.",
+ "dispatch_advice": {
+  "avoid": [
+   "Reopen and check tables and subtitles with Chinese text before using them.",
+   "Have someone review detailed findings. It can miss audio and footage reuse issues or report them under the wrong type.",
+   "Avoid bundling multiple revision notes into a single task.",
+   "Keep decisions without editing rules and tasks that require listening with a person."
+  ],
+  "give": [
+   "Use it to find the time of a specified shot or verify whether the shot appears in the footage.",
+   "Use it to change numeric values in a configuration from clear notes.",
+   "Use it for a first pass on obvious visual issues such as black frames, white flashes, and channel logos.",
+   "Give it short questions that need a quick reply."
+  ]
+ },
+ "honesty": "No false claims were found. Evidence supported 88 claims, contradicted 0, and left 42 unverifiable. Several frame inspection records contained extra text in the source field, so the grading program could not find the source files. Those records were unverifiable. When the model could not listen to the audio or had no video to compare against, it marked the work as partial. Many report notes also turned into question marks, leaving reviewers unable to read them. It handled 11 of 18 traps and still missed some items.",
+ "id": "terra",
+ "one_line": "Overall score was 61.81 with speed and 62.08 without speed. The model passed 7 of 22 scored tasks and ranked near the bottom. It submitted work as quickly as the fastest models and was good at locating specific shots. Several times it wrote question marks in place of Chinese text and did not reopen the files to check. This affected tables and subtitles.",
+ "roles": [
+  {
+   "role": "Footage Logging",
+   "text": "All three Footage Logging tasks earned some content points and fell below the pass threshold. The role score with speed was 64.21. In short asset logging (SORT2), it correctly identified audio, corner watermarks, usability, and clip reuse. All entries for type and landscape or portrait orientation turned into question marks, and it scored 69.64 without speed. It piped a script containing Chinese text into Python through the command line. The text was lost in transit and the output went unchecked. Film titles and character names were also corrupted on the film clip logging task (SORT3). On the grouping task (SORT1), it reversed the order of two recordings within a group."
+  },
+  {
+   "role": "Shot Finding",
+   "text": "The hard task on checking two shots (FIND3) took 49.6 seconds and scored 100 without speed. It also got all the content right on the shot location task (FIND1), which passed. It added the words \"contact sheet\" to the frame sources, so the sources could not be verified. The graders recorded no false claim. On the film and character identification task (FIND2), every audio judgment was correct, but question marks replaced the Chinese film titles and character names. It scored 33.33 without speed."
+  },
+  {
+   "role": "Voiceover Editing",
+   "text": "The Voiceover Editing score with speed was 52.00, near the bottom. It submitted an empty list of ranges to keep on the retaken intro task (VO1), scoring 0 for content. On the unscripted narration task (VO2), it correctly identified the relationship between the script and the recording. It did not keep the long pause at the required length, but passed with 96.90 without speed. On the harder task (VO3), it kept large stretches of the recording, including retaken lines that needed to be cut. It scored 59.11 without speed."
+  },
+  {
+   "role": "B-roll Editing",
+   "text": "It submitted lists for both B-roll Editing tasks. Both fell below the pass threshold. On CUT1, three of five choices matched the usable final cut, for 52.00 without speed. CUT3 scored 28.57, with room to improve how it sequenced the footage. The role score with speed was 40.29. Speed made little difference to the score. The main issue was footage choice."
+  },
+  {
+   "role": "Taste",
+   "text": "It got all 20 choices right when editing rules were available (TASTE1). Without rules (TASTE2), 9 of 15 choices matched, for 20.00 without speed on the benchmark's scoring scale. It was more reliable with rules in this run. Without them, a person should make the final choices. The third task was for reference only and did not count toward the score."
+  },
+  {
+   "role": "Review",
+   "text": "It earned full marks on the task checking for black frames, white flashes, and channel corner watermarks (QC1). In the audio and subtitle task (QC2), it misclassified an audio issue and missed a subtitle issue. On the detailed visual task (QC3), it found some subtle issues. It split one issue into two reports, which the grader could not match."
+  },
+  {
+   "role": "Revisions",
+   "text": "It earned full marks on the task that called for changes only to the named part (FIX2). On the task with three clear notes (FIX1), it only extended one clip. It said it could not determine the scope of the deletion and repositioning requests and left those edits undone. On the hardest task (FIX3), it got the scope wrong, as GPT-6.1 Sol did."
+  },
+  {
+   "role": "Subtitles",
+   "text": "It ranked low for Subtitles. SUB1 passed with 95.36 without speed. Question marks replaced the subtitle text again on SUB2, which scored 34.73 without speed. It submitted no subtitle file for SUB3 and scored 0 for content."
+  }
+ ],
+ "working_style": "It submitted quickly. Across 22 scored tasks, the median total time was 55.4 seconds, and 90% took no more than 93.4 seconds. The median was 5 tool-call batches, and checks after file edits took 3.3 seconds. It produced 45,055 output tokens, including 7,173 reasoning tokens. Usage does not affect scores. There were 23 recorded encoding issues. It spotted question marks on the first subtitle task and rewrote the file successfully. It did not consistently reopen files after writing them.\n\nThe recording grouping task was marked late. There were 933.6 seconds of idle time before the first recorded activity, and the task ended about 20 seconds later. That pattern points to channel delay, which may account for part of the task time."
+}

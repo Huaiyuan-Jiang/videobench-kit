@@ -1,0 +1,86 @@
+/* 岗位页：在 template.html 的样式之上加的 */
+.rp{max-width:1280px;margin:0 auto;padding:0 28px 80px}
+
+/* 岗位互链 */
+.rtabs{display:flex;flex-wrap:wrap;gap:4px 24px;padding:16px 0 0;border-bottom:1px solid var(--line)}
+.rtabs a{padding:6px 0 10px;font-size:14px;color:var(--mute);text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px}
+.rtabs a:hover{color:var(--fg)}
+.rtabs a[aria-current]{color:var(--fg);border-bottom-color:var(--accent)}
+
+/* 岗位名和介绍 */
+.rh{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:18px 64px;padding:44px 0 46px}
+.rh h1{grid-column:1/-1;margin:0;font-size:52px;line-height:1.06;font-weight:600;letter-spacing:-.03em}
+.rh p{margin:0}
+.what{font-size:20px;line-height:1.7;color:var(--fg)}
+.desc{max-width:44em;padding-top:6px;font-size:15.5px;line-height:1.9;color:#D9D3CD}
+
+/* 块 */
+.rsec{padding:30px 0 34px;border-top:1px solid var(--line)}
+.rsec>h2{margin-bottom:22px;font-size:17px;letter-spacing:-.01em}
+
+/* 横条：整张图一个网格，名字列按最长的名字定宽 */
+.rk2,.tbl{display:grid;align-items:center}
+.rk2 .lo,.tbl .lo{display:block}
+.rr2,.tw,.th{display:contents}
+.tbl>.pane.on{display:contents}
+.rh .sv{grid-column:1/-1}
+.rk2{grid-template-columns:22px max-content minmax(0,1fr) auto;gap:7px 12px}
+.rk2 .lo{width:22px;height:22px;border-radius:6px;background-size:15px}
+.nm2{min-width:0;font-size:14px;color:var(--c)}
+.tr2{position:relative;height:20px}
+.tr2 i{position:absolute;left:0;top:0;bottom:0;width:var(--w);min-width:1px;background:var(--c);border-radius:0 3px 3px 0}
+.rk2 .tr2{background:var(--track);border-radius:3px}
+.vl2{min-width:3.2em;font-size:15px;font-weight:600;text-align:right}
+
+/* 每道题 */
+.tk3{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:24px 64px}
+.tmeta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-bottom:14px}
+.tn{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--grid);font-size:13px;font-weight:600}
+.df{display:flex;align-items:baseline;gap:8px;color:var(--mute);font-size:13px}
+.df b{font-weight:500;color:var(--fg)}
+.tag{padding:2px 9px;border-radius:999px;font-size:12px;color:var(--mute);box-shadow:inset 0 0 0 1px var(--grid)}
+.tl h2{margin-bottom:12px;font-size:22px;line-height:1.35;font-weight:600;letter-spacing:-.015em}
+.tl p{margin:0;font-size:14.5px;line-height:1.85;color:#D9D3CD}
+.tbl{grid-template-columns:20px max-content minmax(0,1fr) auto auto minmax(20px,auto);gap:5px 12px;align-self:start}
+.tbl .lo{width:20px;height:20px}
+.tbl .nm2{font-size:13px}
+.tbl .tr2{height:12px;background:var(--track);border-radius:2px}
+.tbl .vl2{font-size:13px;font-weight:500}
+.th>span{padding-bottom:6px;color:var(--mute);font-size:12px;text-align:right;white-space:nowrap}
+.th .th0{grid-column:1/4}
+.tm{min-width:3.4em;font-size:12.5px;color:var(--mute);text-align:right}
+.ok{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--grid);justify-self:end}
+.ok.on{background:var(--c);box-shadow:none}
+.ok svg{width:13px;height:13px;fill:none;stroke:#000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+@media (max-width:1100px){
+  .tk3{grid-template-columns:minmax(0,1fr);gap:22px}
+  .tl p{max-width:44em}
+}
+@media (max-width:900px){
+  .rh{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:720px){
+  .rp{padding:0 16px 56px}
+  .rtabs{gap:2px 18px;padding-top:10px}
+  .rtabs a{font-size:13.5px;padding:6px 0 8px}
+  .rh{gap:12px;padding:28px 0 30px}
+  .rh h1{font-size:34px}
+  .what{font-size:17.5px}
+  .desc{font-size:15px}
+  .tl h2{font-size:19px}
+  .tl p{font-size:15px}
+  /* 名字单独一行，下面是条和数 */
+  .rk2{grid-template-columns:20px minmax(0,1fr) auto;gap:3px 10px}
+  .rk2 .lo{width:20px;height:20px;background-size:14px;border-radius:5px}
+  .rk2 .nm2{grid-column:2/-1}
+  .rk2 .tr2{grid-column:1/3;height:14px;margin-bottom:8px}
+  .rk2 .vl2{margin-bottom:8px;font-size:14px}
+  .tbl{grid-template-columns:20px minmax(0,1fr) auto auto minmax(18px,auto);gap:3px 10px}
+  .tbl .nm2{grid-column:2/-1}
+  .tbl .tr2{grid-column:1/3;margin-bottom:8px}
+  .tbl .vl2,.tbl .tm,.tbl .ok{margin-bottom:8px}
+  .th .th0{grid-column:1/3}
+  .ok{width:16px;height:16px}
+  .ok svg{width:11px;height:11px}
+}

@@ -1,0 +1,62 @@
+{
+  "allowed_writes": [
+    "out/**"
+  ],
+  "answer_excerpt": "合格的那个：A 10 组，B 10 组。",
+  "brief_excerpt": "二十组断行，按标准挑合格的。",
+  "constraints": [
+    {
+      "desc": "每组的 pick 只能是 A 或 B",
+      "hard": false,
+      "id": "pick_valid"
+    }
+  ],
+  "difficulty": "medium",
+  "dimension": "taste",
+  "generator": "generators/SAMPLE.py seed=4102",
+  "grading_method": "逐组对答案，按二选一校正。",
+  "id": "SAMPLE2",
+  "item_count": 20,
+  "leak_tokens": [],
+  "material_date": "2026-11-11",
+  "needs": [
+    "text"
+  ],
+  "notes": "合成材料。配平：正确答案是 A 的 10 组；是行数更少那个的 10 组；是断点更多那个的 10 组（共 20 组）。",
+  "open_book": true,
+  "q_pass": 0.9,
+  "quality_spec": {
+    "formula": "一个分项。agreement：选对的组数除以总组数，再按二选一校正：（正确率 − 0.5）÷ 0.5，低于 0 记 0。没交、pick 不是 A 或 B 的组算错。",
+    "params": {
+      "chance": 0.5,
+      "groups": 20
+    },
+    "parts": [
+      {
+        "id": "agreement",
+        "label": "和标准一致的程度（已校正乱选）",
+        "weight": 1.0
+      }
+    ]
+  },
+  "required_claims": [
+    {
+      "desc": "交了多少组",
+      "id": "group_count"
+    },
+    {
+      "desc": "选 A 的有多少组",
+      "id": "pick_a_count"
+    }
+  ],
+  "required_deliverables": [
+    "out/choices.json"
+  ],
+  "role": "SAMPLE",
+  "scenario": "两种字幕断行，挑合格的那个。",
+  "short_title": "字幕断行二选一",
+  "sources": [],
+  "title": "样题二：字幕断行二选一（开卷）",
+  "traps": [],
+  "uses_real_material": false
+}

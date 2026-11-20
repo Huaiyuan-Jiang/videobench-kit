@@ -1,0 +1,52 @@
+{
+ "confidence": "On the first attempt at 5 tasks involving sound, the model printed audio data to the output so it could listen. The channel did not support audio input, and the attempts ended immediately with errors. Those 5 tasks were rerun, and an audio limitation note was added to those prompts and to 5 tasks the model had yet to attempt. Other models did not get this note. The scores here use the reruns, with the initial channel errors reported separately. The prompt differences limit comparisons across models. Most roles also had only three tasks, with two scored tasks each for B-roll Editing and Taste.",
+ "dispatch_advice": {
+  "avoid": [
+   "Check whether the list of ranges to keep is empty. On harder Voiceover Editing tasks, listen to verify that all the main spoken content is there even when the task passed.",
+   "Verify where the reference transcript came from and what was actually said before using original-audio subtitles.",
+   "Have a person make the final choices for B-roll Editing and for Taste tasks without supplied rules."
+  ],
+  "give": [
+   "Assign Shot Finding and first-pass Review. Spot-check footage sources and audio judgments after delivery.",
+   "Assign configuration revisions with clear notes and subtitle work with a reliable transcript."
+  ]
+ },
+ "honesty": "The grading record shows no false claims. Evidence supported 88 claims, contradicted 0, and left 57 unverifiable. There were 57 verifiable pieces of evidence about footage sources. The model said it had not checked whether the original-audio subtitles matched word for word, and marked the edit decision on the harder Voiceover Editing task as pending. The record shows no out-of-directory access. Some inputs lack records of frame inspection, so the score alone cannot verify that every check took place.",
+ "id": "sol62",
+ "one_line": "Overall score was 81.55 without speed and 81.48 with speed. The model passed 15 of 22 scored tasks. It was reliable at Shot Finding and Review and precise when following clear revision notes. It still submitted an empty list of ranges to keep on a Voiceover Editing task and used an unverified transcript for original-audio subtitles. Some task prompts differed from those given to other models.",
+ "roles": [
+  {
+   "role": "Footage Logging",
+   "text": "It passed two of three tasks. It earned full content marks for grouping recordings (SORT1) and accurately reported the check result. It got all 84 inventory items right (SORT2). It got 52 of 60 items right when logging film clips (SORT3), scoring 80.00 without speed, below the pass threshold. It can log footage, with a second check on judgments involving audio."
+  },
+  {
+   "role": "Shot Finding",
+   "text": "It passed all three tasks, with a role score of 98.41 without speed. Both shot location tasks earned full content marks. That includes FIND3, which also checked timing clues. On the film identification task (FIND2), it got 23 of 24 items right and scored 95.24 without speed. Two inputs had no record of frame inspection, so the content score leaves those checks unverified."
+  },
+  {
+   "role": "Voiceover Editing",
+   "text": "It submitted an empty list of ranges to keep on the retaken intro task (VO1) and scored 0. The second task earned full content marks. The harder task with two recordings (VO3) passed with 93.59 without speed, but it still left the check uncertain and the edit decision as pending. It failed both the check for completeness of the main spoken content and the check against the transcript. Even a draft that meets the pass threshold still needs those checks before it goes into an edit."
+  },
+  {
+   "role": "B-roll Editing",
+   "text": "It fell below the pass threshold on both tasks. Three of its five choices matched on the first task (CUT1), for 52.00 without speed. Two of seven matched on the longer explanation (CUT3), for 28.57 without speed. It met all mandatory requirements, but its footage choices still diverged from the usable final cut. A person should review the final picks."
+  },
+  {
+   "role": "Taste",
+   "text": "It got all 20 choices right when editing rules were supplied (TASTE1). Without those rules (TASTE2), 10 of 15 choices matched, for 33.33 without speed, below the pass threshold. It can follow explicit rules, while this closed-book result gives little basis for handing it final editorial decisions."
+  },
+  {
+   "role": "Review",
+   "text": "All three tasks earned full marks without speed. The role score with speed was 99.88. In the audio and subtitle task (QC2), it got the issue types and locations right. It also found all the issues on the detailed Review task. These results support using it for a first pass, with spot checks on audio findings."
+  },
+  {
+   "role": "Revisions",
+   "text": "It earned full content marks on the two tasks with clear notes. On FIX3, it saw the need to check the note but missed part of its scope. It scored 75.00 without speed, below the pass threshold. Give it a clear scope for revisions. When a note is unclear, check the scope it identifies."
+  },
+  {
+   "role": "Subtitles",
+   "text": "It passed the first two tasks with scores of 98.93 and 100 without speed. For original-audio subtitles (SUB3), it used the reference transcript for the subtitle text and adjusted the timing using the waveform. It did not verify the subtitle text correctly and scored 37.35 without speed. It disclosed that it had not checked by listening, and the subtitle text was still wrong."
+  }
+ ],
+ "working_style": "The final scored attempts had no timeouts or errors. Median completion time was 135.0 seconds, and the median number of tool calls was 8.5. It spent a median of 34.9 seconds checking its work after the last file edit. Scored tasks produced 116,504 output tokens, including 41,243 reasoning tokens. Usage does not affect scores. Its checks did not resolve where the original-audio transcript came from, and question marks replaced text in the decision notes for the harder Voiceover Editing task. Check both the content and whether the files are readable."
+}

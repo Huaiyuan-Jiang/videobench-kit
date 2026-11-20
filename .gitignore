@@ -1,0 +1,17 @@
+__pycache__/
+.pytest_cache/
+/out/
+/runs/
+/results/
+/selfcheck/
+/probes/
+/tasks/*
+!/tasks/SAMPLE/
+/grading/*
+!/grading/SAMPLE/
+/generators/*
+!/generators/SAMPLE.py
+.env*
+*.sqlite*
+*.db
+*.log

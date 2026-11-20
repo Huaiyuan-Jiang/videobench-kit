@@ -1,0 +1,53 @@
+{
+ "confidence": "The model completed all 22 scored tasks. Most roles had only three tasks. Taste and B-roll Editing each had two scored tasks, and the third Taste task was for reference only. There is more confidence in the Review results and in Revisions with clear instructions. The B-roll Editing advice is based on the two scored tasks in this run. These results cover the official API channel with reasoning set to high.",
+ "dispatch_advice": {
+  "avoid": [
+   "Review the finished voiceover edits and subtitles. On the difficult tasks, the model dropped main spoken content and reused a transcript that did not match.",
+   "Check the dialogue and corner watermark fields in footage logs. When a revision note is ambiguous, also check that the proposed options cover the possible interpretations.",
+   "Check the frame-viewing logs on Shot Finding tasks. The model got the content right on one task even though its report conflicted with the log.",
+   "Have a person review the B-roll picks. The model scored low on both tasks."
+  ],
+  "give": [
+   "Use it for Review. It passed all three tasks and found the subtle issues. Allow enough time.",
+   "Use it to change project settings when the revision notes are clear. Both tasks earned full marks without speed, with submissions after 80.0 seconds and 52.7 seconds."
+  ]
+ },
+ "honesty": "FIND3 had one false claim. The model reported viewing five individual source frames, but the log showed no reads of those frames as separate images. It viewed a contact sheet containing four of them. The log also showed no separate read of the fifth frame. It got the content right, but the new rules set the task score to zero. Overall, evidence supported 105 claims and contradicted 1. Another 48 could not be verified.",
+ "id": "dsflash",
+ "one_line": "The overall score was 78.16 without speed and 77.48 with speed. The model passed 13 of 22 scored tasks. Review was its strongest role, and it handled clear revision notes quickly. It met the pass threshold on the difficult Voiceover Editing task, but the cuts still need a check for missing main spoken content. Its B-roll Editing and original-audio subtitles need review before delivery.",
+ "roles": [
+  {
+   "role": "Footage Logging",
+   "text": "It passed one of three tasks. On the recording-grouping task (SORT1), it got the content right and reported the check result accurately. On the stock-footage logging task (SORT2), it used the wrong format for the corner watermark fields. All 12 fields were marked wrong. It scored 85.71 without speed. On the film-clip logging task, it got the titles, people, and duplicate matches right, but missed dialogue in four places and fell below the pass threshold."
+  },
+  {
+   "role": "Shot Finding",
+   "text": "It passed one of three tasks. It earned full marks without speed on the shot-location task (FIND1). On the film and person identification task (FIND2), it got three film titles wrong. It identified all the people correctly and correctly reported whether sound was present. It scored 85.71 without speed. On the difficult task of checking two shots (FIND3), it got the content right. Its claim about viewing frames conflicted with the log. The grader recorded one false claim and set the task score to zero."
+  },
+  {
+   "role": "Voiceover Editing",
+   "text": "All three tasks met the pass threshold. The first two earned full marks without speed. It handled differences between the recordings and the scripts. On the difficult task with two recordings (VO3), it flagged a mismatch between the transcript and the audio. The delivered edit omitted some main spoken content and failed a key check. It still scored 90.35 without speed and 87.92 with speed. Check that all main spoken content is present even when the score meets the pass threshold."
+  },
+  {
+   "role": "B-roll Editing",
+   "text": "It submitted both scored tasks in full. The footage choices were a weakness. On CUT1, two of five choices matched the usable final cut, for 28.00 without speed. On the long-explainer task (CUT3), only one of seven items matched, for 14.29 without speed. Based on these two tasks, have someone else make the final footage choices."
+  },
+  {
+   "role": "Taste",
+   "text": "With editing rules to consult (TASTE1), all 20 choices matched the usable final cut. It scored 100 without speed. With no rules to consult (TASTE2), 9 of 15 choices matched. It scored 20.00 without speed and failed the task. Its choices were more accurate when it could follow rules."
+  },
+  {
+   "role": "Review",
+   "text": "It passed all three tasks with full marks without speed. The role score with speed was 98.27. On the difficult task (QC3), it found all the subtle editing issues, with no false positives. Allow enough time for a detailed review. This task took 836.1 seconds."
+  },
+  {
+   "role": "Revisions",
+   "text": "It scored 100 without speed on both tasks with clear revision notes (FIX1 and FIX2). They took 80.0 seconds and 52.7 seconds, respectively, and it left the other parts intact. On the difficult task (FIX3), it noticed the note needed checking but missed part of the scope and failed a required check. It still scored 75.00 without speed, below the pass threshold."
+  },
+  {
+   "role": "Subtitles",
+   "text": "It passed the first two tasks, scoring 96.56 and 99.82 without speed, respectively. On the difficult original-audio subtitle task (SUB3), it used the reference transcript to decide the language and what was said. It failed to verify the language and text and scored only 37.40 without speed. The report described checks on timing and proper names, but still got the subtitle text wrong."
+  }
+ ],
+ "working_style": "The model submitted all 22 scored tasks with no late submissions, timeouts, or errors. The median time from start to submission was 297.6 seconds, and the median number of tool calls was 30. It spent a median of 49.4 seconds checking its work after the last change to a deliverable. It generated 930,198 output tokens across the scored tasks. It changed configurations quickly and spent longer reviewing footage. The access channel records these output tokens. They do not affect scoring."
+}

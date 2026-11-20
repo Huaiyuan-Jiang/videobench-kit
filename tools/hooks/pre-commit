@@ -1,0 +1,3 @@
+#!/bin/sh
+# Refuse the commit if the leak check finds anything. Enable with: git config core.hooksPath tools/hooks
+exec python -B tools/leakcheck.py --staged

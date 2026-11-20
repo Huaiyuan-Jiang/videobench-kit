@@ -1,0 +1,197 @@
+{
+  "suite_version": "2026-11-11.1",
+  "withdrawn_tasks": {
+    "CUT2": "withdrawn"
+  },
+  "withdrawn_examinees": {},
+  "roles": [
+    {
+      "id": "SORT",
+      "label": "素材归类",
+      "pipeline_steps": [
+        3,
+        8,
+        9
+      ],
+      "needs": [
+        "vision"
+      ]
+    },
+    {
+      "id": "FIND",
+      "label": "找镜头认人",
+      "pipeline_steps": [
+        9
+      ],
+      "needs": [
+        "vision"
+      ]
+    },
+    {
+      "id": "VO",
+      "label": "口播精剪",
+      "pipeline_steps": [
+        6
+      ],
+      "needs": [
+        "text"
+      ]
+    },
+    {
+      "id": "CUT",
+      "label": "主剪决定",
+      "pipeline_steps": [
+        11
+      ],
+      "needs": [
+        "text"
+      ]
+    },
+    {
+      "id": "TASTE",
+      "label": "审美判断",
+      "pipeline_steps": [
+        11,
+        18
+      ],
+      "needs": [
+        "vision"
+      ]
+    },
+    {
+      "id": "QC",
+      "label": "审片",
+      "pipeline_steps": [
+        15,
+        17
+      ],
+      "needs": [
+        "vision",
+        "audio"
+      ]
+    },
+    {
+      "id": "FIX",
+      "label": "改片",
+      "pipeline_steps": [
+        18
+      ],
+      "needs": [
+        "text"
+      ]
+    },
+    {
+      "id": "SUB",
+      "label": "字幕",
+      "pipeline_steps": [
+        13
+      ],
+      "needs": [
+        "text"
+      ]
+    },
+    {
+      "id": "SAMPLE",
+      "label": "样题（底座自测用）",
+      "pipeline_steps": [],
+      "needs": [
+        "text",
+        "vision"
+      ],
+      "sample": true
+    }
+  ],
+  "probes": [
+    {
+      "id": "P1",
+      "title": "短答",
+      "has_answer": false,
+      "needs": [
+        "text"
+      ],
+      "measures": [
+        "first_event_s",
+        "first_text_s",
+        "output_rate_chars_per_s",
+        "output_rate_tokens_per_s",
+        "stream_chars_per_s",
+        "total_s"
+      ]
+    },
+    {
+      "id": "P2",
+      "title": "长输出",
+      "has_answer": false,
+      "needs": [
+        "text"
+      ],
+      "measures": [
+        "output_rate_chars_per_s",
+        "output_rate_tokens_per_s",
+        "stream_chars_per_s",
+        "total_s"
+      ]
+    },
+    {
+      "id": "P3",
+      "title": "看一帧",
+      "has_answer": true,
+      "needs": [
+        "vision"
+      ],
+      "measures": [
+        "first_event_s",
+        "total_s"
+      ]
+    },
+    {
+      "id": "P4",
+      "title": "看拼图",
+      "has_answer": true,
+      "needs": [
+        "vision"
+      ],
+      "measures": [
+        "total_s"
+      ]
+    },
+    {
+      "id": "P5",
+      "title": "长文件找句",
+      "has_answer": true,
+      "needs": [
+        "text"
+      ],
+      "measures": [
+        "total_s",
+        "first_event_s"
+      ]
+    },
+    {
+      "id": "P6",
+      "title": "工具来回",
+      "has_answer": true,
+      "needs": [
+        "shell"
+      ],
+      "measures": [
+        "per_roundtrip_s",
+        "total_s"
+      ]
+    },
+    {
+      "id": "P7",
+      "title": "空任务往返",
+      "has_answer": true,
+      "needs": [
+        "text"
+      ],
+      "measures": [
+        "total_s",
+        "startup_s"
+      ]
+    }
+  ],
+  "probe_repeats": 3,
+  "role_checks": []
+}

@@ -1,0 +1,53 @@
+{
+ "confidence": "Confidence in these findings is low to moderate. The model submitted the spontaneous narration task on a rerun, but most roles still had only 3 tasks, and Taste yielded no usable scored answers. The way the model assembled the two contact sheets made them too large for the channel. Those failures leave its visual recognition ability unresolved. Clear revisions and short subtitles yielded usable samples. Missing submissions, errors, and runs that came close to the deadline limit what can be assigned to it in practice.",
+ "dispatch_advice": {
+  "avoid": [
+   "Avoid tight deadlines. Several tasks had correct content and still lost substantial points with speed.",
+   "Avoid work that requires reviewing many images at once or assembling large contact sheets. It stopped twice when a contact sheet exceeded the channel's image size limit.",
+   "Avoid open-ended identification tasks such as naming films and characters. It kept guessing and submitted no result."
+  ],
+  "give": [
+   "Assign timeline configuration changes when the feedback is clear. Have it edit only the named fields and check what changed after delivery.",
+   "Assign short voiceover subtitles based on a script. It can follow the rules if given enough time.",
+   "Have it check for silent sections, sudden volume drops, and out-of-sync subtitles. Review its findings after delivery."
+  ]
+ },
+ "honesty": "There was 1 false claim. The FIND3 report said the model viewed 40 images, but the tool logs show no record of it opening two of them. It got the content right, and the task still scored 0. Evidence supported 67 other claims and left 35 unverified. The logs show no internet access, subagent use, or out-of-directory access. It made no claims of completion on unsubmitted tasks.",
+ "id": "longcat",
+ "one_line": "The overall score was 39.34 with speed and 53.59 without speed, near the bottom of the benchmark. The model passed 9 of 22 scored tasks. It was accurate on clear revision requests and short subtitles with a script, but delivery was inconsistent. It left 4 scored tasks unsubmitted, 2 scored zero after errors, and another scored zero after a false claim about viewing frames. It submitted the spontaneous narration task on a rerun, but the runtime still lowered its score.",
+ "roles": [
+  {
+   "role": "Footage Logging",
+   "text": "It submitted and passed only the short clip logging task (SORT2). It missed 2 of 84 items and got the audio and corner watermark judgments right. It scored 96.43 without speed and 78.23 with speed. The recording grouping task (SORT1) ended with a tool call marker that never executed. It produced no files. On the film clip logging task (SORT3), a contact sheet exceeded the channel's width limit for a single image, and the resulting error stopped the run."
+  },
+  {
+   "role": "Shot Finding",
+   "text": "It got the content right on the shot location task (FIND1), but took 3460.4 seconds. It scored 100 without speed and just 7.89 with speed. It also got the content right on the shot verification task (FIND3). Its report listed two extra images it had not viewed, which counted as a false claim and zeroed the score. It kept guessing on the film and character identification task (FIND2). The final call hit the output limit and was cut off, with no result submitted."
+  },
+  {
+   "role": "Voiceover Editing",
+   "text": "It got the content right on the easy task (VO1). On its rerun of the spontaneous narration task (VO2), it scored 94.38 without speed and met the pass threshold, though it made mistakes with natural pauses and which parts of the main spoken content to keep. It scored 63.06 with speed. On the task with two spoken recordings (VO3), it reached the right conclusion about the transcript. It got retake boundaries and decisions about interjections wrong, and cut some of the main spoken content. It scored 85.68 without speed and just 20.45 with speed."
+  },
+  {
+   "role": "B-roll Editing",
+   "text": "It submitted both B-roll Editing tasks. There was no video in the directory, so it chose clips from text descriptions. CUT1 scored 28.00 without speed, and CUT3 scored 14.29. Both fell below the pass threshold. This run gives little reason to have it choose B-roll on its own."
+  },
+  {
+   "role": "Taste",
+   "text": "It submitted neither scored task. On the task with rules to consult (TASTE1), it made 5 tool calls and ended after saying it needed to read the prompt first. On the task without rules (TASTE2), it made only 3 tool calls. Both tasks scored zero because it never finished answering, so there is no basis for judging its taste from these results. The third task was for reference only."
+  },
+  {
+   "role": "Review",
+   "text": "It found all the issues on the audio and subtitle task (QC2), scoring 100 without speed and 62.17 with speed. It found all the issues on the picture task (QC1) but also flagged some on-screen text that was acceptable, for 85.71 without speed. On the hard task (QC3), a contact sheet exceeded the single-image size limit and the run stopped with an error. That task yielded no usable evidence of its review ability."
+  },
+  {
+   "role": "Revisions",
+   "text": "It got both tasks with clear feedback right and made no unrelated changes. It scored 98.96 with speed on the task that called for changing only the named part (FIX2). On FIX3, it saw the need to check the note but missed part of its scope. It scored 75.00 without speed and 72.49 with speed, below the pass threshold."
+  },
+  {
+   "role": "Subtitles",
+   "text": "It passed the first two subtitle tasks and followed the rules for spelling proper names and leaving cut-off lines incomplete. It scored 99.56 and 99.93 without speed, and 94.19 and 84.18 with speed, respectively. On the original audio task (SUB3), it left one placeholder subtitle reading test and omitted the edit decisions file and report. The content score was 0."
+  }
+ ],
+ "working_style": "The model was slow and used a lot of tokens. Across the 16 scored tasks submitted normally, median total runtime was 1559.4 seconds. Median model processing time was 1520.0 seconds, and median time spent on local commands was 32.3 seconds. It made a median of 34.5 tool calls per task and spent a median of 239.0 seconds checking its work after the last file change. Across all 22 scored tasks, it generated 1,979,007 output tokens and read 109,911,040 tokens from cache. Token usage is excluded from scoring.\n\nThe model failed to submit for several reasons. The recording grouping task and both Taste tasks ended normally without results. The logs do not explain why it stopped. The film identification task hit the output limit for a single call. Two tasks hit errors because their contact sheets were too large. The scores include the submitted rerun of the spontaneous narration task."
+}

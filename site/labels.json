@@ -1,0 +1,342 @@
+{
+  "models.title": {
+    "text": "模型"
+  },
+  "models.toggle": {
+    "text": "模型"
+  },
+  "nav.scatter": {
+    "text": "指标对比"
+  },
+  "nav.more": {
+    "text": "更多指标"
+  },
+  "nav.speed": {
+    "text": "速度测试"
+  },
+  "hero.q": {
+    "text": "总分"
+  },
+  "tic.title": {
+    "text": "口头禅频率"
+  },
+  "tic.unit": {
+    "text": "次/万字"
+  },
+  "hero.time": {
+    "text": "总用时"
+  },
+  "hero.tok": {
+    "text": "每题平均消耗 token"
+  },
+  "legend.cache": {
+    "text": "缓存重读"
+  },
+  "legend.fresh": {
+    "text": "新输入"
+  },
+  "legend.out": {
+    "text": "输出"
+  },
+  "scatter.tab.time": {
+    "text": "总用时"
+  },
+  "scatter.tab.tok": {
+    "text": "每题平均消耗 token"
+  },
+  "scatter.pareto": {
+    "text": "质量与效率优选"
+  },
+  "scale.lin": {
+    "text": "均匀刻度"
+  },
+  "scale.log": {
+    "text": "倍数刻度"
+  },
+  "axis.q": {
+    "text": "总分（不含速度）"
+  },
+  "axis.time": {
+    "text": "总用时"
+  },
+  "axis.tok": {
+    "text": "每题平均消耗 token"
+  },
+  "roles.title": {
+    "text": "岗位得分"
+  },
+  "more.tab.pass": {
+    "text": "做成题数"
+  },
+  "more.tab.lie": {
+    "text": "谎报题数"
+  },
+  "more.tab.out": {
+    "text": "每题平均输出 token"
+  },
+  "more.tab.cache": {
+    "text": "每题平均缓存重读"
+  },
+  "speed.title": {
+    "text": "速度测试"
+  },
+  "tasks.title": {
+    "text": "逐题得分"
+  },
+  "note.speed": {
+    "text": "该数据仅供参考，实际使用时会受时间段、同时使用人数、网络和服务商负载等因素影响。"
+  },
+  "rv.sec.one_line": {
+    "text": "一句话评价"
+  },
+  "rv.sec.roles": {
+    "text": "岗位表现"
+  },
+  "rv.sec.working_style": {
+    "text": "干活习惯"
+  },
+  "rv.sec.honesty": {
+    "text": "诚实与访问范围"
+  },
+  "rv.sec.dispatch": {
+    "text": "派活建议"
+  },
+  "rv.dispatch.give": {
+    "text": "适合的活"
+  },
+  "rv.dispatch.avoid": {
+    "text": "不适合的活"
+  },
+  "rv.sec.confidence": {
+    "text": "结论可靠程度"
+  },
+  "md.spec.title": {
+    "text": "测试规格"
+  },
+  "md.spec.tool": {
+    "text": "工具"
+  },
+  "md.spec.channel": {
+    "text": "调用线路"
+  },
+  "md.spec.model": {
+    "text": "模型"
+  },
+  "md.spec.effort": {
+    "text": "思考档位"
+  },
+  "md.spec.fast": {
+    "text": "加速模式"
+  },
+  "md.spec.input": {
+    "text": "输入类型"
+  },
+  "md.spec.context": {
+    "text": "上下文窗口"
+  },
+  "rp.rank": {
+    "text": "岗位得分"
+  },
+  "rp.diff": {
+    "text": "难度"
+  },
+  "rp.diff.easy": {
+    "text": "易"
+  },
+  "rp.diff.medium": {
+    "text": "中"
+  },
+  "rp.diff.hard": {
+    "text": "难"
+  },
+  "rp.ref": {
+    "text": "仅参考"
+  },
+  "rp.col.score": {
+    "text": "题分"
+  },
+  "rp.col.time": {
+    "text": "用时"
+  },
+  "rp.col.pass": {
+    "text": "做成"
+  },
+  "rp.timeout": {
+    "text": "超时"
+  },
+  "rp.error": {
+    "text": "出错"
+  },
+  "probe.P1": {
+    "text": "短答"
+  },
+  "probe.P2": {
+    "text": "长文本输出"
+  },
+  "probe.P3": {
+    "text": "单图读字"
+  },
+  "probe.P4": {
+    "text": "拼图找黑格"
+  },
+  "probe.P5": {
+    "text": "长文件找句"
+  },
+  "probe.P6": {
+    "text": "连续调用工具"
+  },
+  "probe.P7": {
+    "text": "空任务往返"
+  },
+  "metric.first_text_s": {
+    "text": "首句正文等待"
+  },
+  "metric.first_event_s": {
+    "text": "首个动作等待"
+  },
+  "metric.first_stream_chunk_s": {
+    "text": "首段数据等待"
+  },
+  "metric.output_rate_tokens_per_s": {
+    "text": "token 产出率"
+  },
+  "metric.output_rate_chars_per_s": {
+    "text": "正文输出速度"
+  },
+  "metric.stream_chars_per_s": {
+    "text": "逐段输出速度"
+  },
+  "metric.per_roundtrip_s": {
+    "text": "单次工具往返用时"
+  },
+  "metric.total_s": {
+    "text": "总用时"
+  },
+  "metric.model_s": {
+    "text": "模型用时"
+  },
+  "metric.startup_s": {
+    "text": "启动用时"
+  },
+  "metric.correct": {
+    "text": "正确次数"
+  },
+  "note.audit": {
+    "text": "该通道不提供完整的工具调用记录，无法查全越界读写文件和声称看图却未看的行为，做成题数和诚实度不能与其他模型直接比较。",
+    "mark": "†",
+    "examinees": [
+      "hydrogen",
+      "hydrogen-high",
+      "neon"
+    ]
+  },
+  "note.sol62": {
+    "text": "首轮尝试打印音频数据试听，5题因通道不支持音频输入而报错终止。重考及余题仅该模型题面另有音频限制说明。",
+    "mark": "*",
+    "examinees": [
+      "sol62"
+    ]
+  },
+  "md.speed.first_text_s": {
+    "text": "首句正文等待中位数"
+  },
+  "md.speed.first_event_s": {
+    "text": "首个动作等待中位数"
+  },
+  "md.speed.first_stream_chunk_s": {
+    "text": "首段数据等待中位数"
+  },
+  "md.speed.output_rate_tokens_per_s": {
+    "text": "token 产出率中位数"
+  },
+  "md.speed.output_rate_chars_per_s": {
+    "text": "正文输出速度中位数"
+  },
+  "md.speed.stream_chars_per_s": {
+    "text": "逐段输出速度中位数"
+  },
+  "md.speed.total_s": {
+    "text": "小测总用时中位数"
+  },
+  "md.speed.model_s": {
+    "text": "模型用时中位数"
+  },
+  "md.speed.startup_s": {
+    "text": "启动用时中位数"
+  },
+  "md.speed.per_roundtrip_s": {
+    "text": "工具往返用时中位数"
+  },
+  "md.speed.correct": {
+    "text": "小测正确次数"
+  },
+  "hero.total_tokens": {
+    "text": "消耗 token"
+  },
+  "sv.speed": {
+    "text": "含速度"
+  },
+  "sv.nospeed": {
+    "text": "不含速度"
+  },
+  "zero.cheat": {
+    "text": "作弊"
+  },
+  "zero.timeout": {
+    "text": "超时"
+  },
+  "zero.no_submit": {
+    "text": "没交卷"
+  },
+  "zero.error": {
+    "text": "出错"
+  },
+  "zero.lie": {
+    "text": "谎报"
+  },
+  "card.title.home": {
+    "text": "VideoBench 视频剪辑评测"
+  },
+  "card.desc.home": {
+    "text": "视频创作者出题的AI评测，考素材整理、剪辑、审片等8个岗位，共22道计分题。"
+  },
+  "card.title.model": {
+    "text": "{模型名}的视频剪辑成绩"
+  },
+  "card.desc.model": {
+    "text": "{模型名}在视频剪辑评测中的总分、岗位得分、逐题得分和用时。"
+  },
+  "card.title.role": {
+    "text": "{岗位名}岗位得分"
+  },
+  "card.desc.role": {
+    "text": "各AI模型在{岗位名}岗位的得分、逐题结果和用时。"
+  },
+  "card.img.big": {
+    "text": "AI视频剪辑评测"
+  },
+  "card.img.small": {
+    "text": "8个岗位，22道计分题"
+  },
+  "first.title": {
+    "text": "免责声明"
+  },
+  "first.body": {
+    "text": "One shot。每题单次运行，未取平均，分数仅供参考。"
+  },
+  "first.ok": {
+    "text": "了解"
+  },
+  "visits.total": {
+    "text": "累计访客"
+  },
+  "first.foot": {
+    "text": "题目与标准答案不公开。个人项目，与模型厂商无关，不构成选型建议。"
+  },
+  "first.1": {
+    "text": "题集为 8 个岗位、22 道计分题，取自单一创作者的剪辑工作流，不代表通用能力。结果绑定考试时的接入通道、思考档位、工具环境和模型版本（2026 年 11 月），用时受当时网络与服务商负载影响。判分规则为本项目自定，个别题人工复核。特殊情况见页面记号。"
+  },
+  "lang.switch": {
+    "text": "EN"
+  }
+}

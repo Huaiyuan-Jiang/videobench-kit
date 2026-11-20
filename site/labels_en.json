@@ -1,0 +1,332 @@
+{
+  "models.title": {
+    "text": "Models"
+  },
+  "models.toggle": {
+    "text": "Models"
+  },
+  "nav.scatter": {
+    "text": "Metric comparison"
+  },
+  "nav.more": {
+    "text": "More metrics"
+  },
+  "nav.speed": {
+    "text": "Speed tests"
+  },
+  "hero.q": {
+    "text": "Overall score"
+  },
+  "tic.title": {
+    "text": "Verbal tics"
+  },
+  "tic.unit": {
+    "text": "occurrences per 10,000 characters"
+  },
+  "hero.time": {
+    "text": "Total time"
+  },
+  "hero.tok": {
+    "text": "Avg. tokens per task"
+  },
+  "legend.cache": {
+    "text": "Cache reads"
+  },
+  "legend.fresh": {
+    "text": "Uncached input"
+  },
+  "legend.out": {
+    "text": "Output"
+  },
+  "scatter.tab.time": {
+    "text": "Total time"
+  },
+  "scatter.tab.tok": {
+    "text": "Avg. tokens per task"
+  },
+  "scatter.pareto": {
+    "text": "Pareto frontier"
+  },
+  "scale.lin": {
+    "text": "Linear"
+  },
+  "scale.log": {
+    "text": "Logarithmic"
+  },
+  "axis.q": {
+    "text": "Overall score (Without speed)"
+  },
+  "axis.time": {
+    "text": "Total time"
+  },
+  "axis.tok": {
+    "text": "Avg. tokens per task"
+  },
+  "roles.title": {
+    "text": "Role scores"
+  },
+  "more.tab.pass": {
+    "text": "Tasks passed"
+  },
+  "more.tab.lie": {
+    "text": "Tasks with false claims"
+  },
+  "more.tab.out": {
+    "text": "Avg. output tokens per task"
+  },
+  "more.tab.cache": {
+    "text": "Avg. cache reads per task"
+  },
+  "speed.title": {
+    "text": "Speed tests"
+  },
+  "tasks.title": {
+    "text": "Task scores"
+  },
+  "note.speed": {
+    "text": "These figures are for reference. Actual times and speeds vary by time of day, number of concurrent users, network conditions, and provider load."
+  },
+  "rv.sec.one_line": {
+    "text": "One-line review"
+  },
+  "rv.sec.roles": {
+    "text": "Role performance"
+  },
+  "rv.sec.working_style": {
+    "text": "Work habits"
+  },
+  "rv.sec.honesty": {
+    "text": "Honesty and access scope"
+  },
+  "rv.sec.dispatch": {
+    "text": "Task recommendations"
+  },
+  "rv.dispatch.give": {
+    "text": "Good fit"
+  },
+  "rv.dispatch.avoid": {
+    "text": "Poor fit"
+  },
+  "rv.sec.confidence": {
+    "text": "Confidence"
+  },
+  "md.spec.title": {
+    "text": "Test setup"
+  },
+  "md.spec.tool": {
+    "text": "Tool"
+  },
+  "md.spec.channel": {
+    "text": "Access route"
+  },
+  "md.spec.model": {
+    "text": "Model"
+  },
+  "md.spec.effort": {
+    "text": "Reasoning effort"
+  },
+  "md.spec.fast": {
+    "text": "Fast mode"
+  },
+  "md.spec.input": {
+    "text": "Input types"
+  },
+  "md.spec.context": {
+    "text": "Context window"
+  },
+  "rp.rank": {
+    "text": "Role scores"
+  },
+  "rp.diff": {
+    "text": "Difficulty"
+  },
+  "rp.diff.easy": {
+    "text": "Easy"
+  },
+  "rp.diff.medium": {
+    "text": "Medium"
+  },
+  "rp.diff.hard": {
+    "text": "Hard"
+  },
+  "rp.ref": {
+    "text": "Reference only"
+  },
+  "rp.col.score": {
+    "text": "Score"
+  },
+  "rp.col.time": {
+    "text": "Time"
+  },
+  "rp.col.pass": {
+    "text": "Passed"
+  },
+  "rp.timeout": {
+    "text": "Timeout"
+  },
+  "rp.error": {
+    "text": "Error"
+  },
+  "probe.P1": {
+    "text": "Short answer"
+  },
+  "probe.P2": {
+    "text": "Long output"
+  },
+  "probe.P3": {
+    "text": "Read text in one image"
+  },
+  "probe.P4": {
+    "text": "Find black squares in a grid"
+  },
+  "probe.P5": {
+    "text": "Find a sentence in a long file"
+  },
+  "probe.P6": {
+    "text": "Repeated tool calls"
+  },
+  "probe.P7": {
+    "text": "Empty round trip"
+  },
+  "metric.first_text_s": {
+    "text": "Time to first text"
+  },
+  "metric.first_event_s": {
+    "text": "Time to first event"
+  },
+  "metric.first_stream_chunk_s": {
+    "text": "Time to first chunk"
+  },
+  "metric.output_rate_tokens_per_s": {
+    "text": "Token output rate"
+  },
+  "metric.output_rate_chars_per_s": {
+    "text": "Text output rate"
+  },
+  "metric.stream_chars_per_s": {
+    "text": "Streaming rate"
+  },
+  "metric.per_roundtrip_s": {
+    "text": "Tool round-trip time"
+  },
+  "metric.total_s": {
+    "text": "Total time"
+  },
+  "metric.model_s": {
+    "text": "Model time"
+  },
+  "metric.startup_s": {
+    "text": "Startup time"
+  },
+  "metric.correct": {
+    "text": "Correct runs"
+  },
+  "note.audit": {
+    "text": "This access route provides incomplete tool call logs. Some instances of out-of-directory access and false claims about image inspection may go undetected. Pass counts and honesty cannot be compared directly with those of other models."
+  },
+  "note.sol62": {
+    "text": "In the first round, the model tried to print audio data to listen to it. 5 tasks ended in errors because the access route did not support audio input. For this model only, the prompts for the reruns and remaining tasks included a note about that limit."
+  },
+  "md.speed.first_text_s": {
+    "text": "Median time to first text"
+  },
+  "md.speed.first_event_s": {
+    "text": "Median time to first event"
+  },
+  "md.speed.first_stream_chunk_s": {
+    "text": "Median time to first chunk"
+  },
+  "md.speed.output_rate_tokens_per_s": {
+    "text": "Median token output rate"
+  },
+  "md.speed.output_rate_chars_per_s": {
+    "text": "Median text output rate"
+  },
+  "md.speed.stream_chars_per_s": {
+    "text": "Median streaming rate"
+  },
+  "md.speed.total_s": {
+    "text": "Median speed test time"
+  },
+  "md.speed.model_s": {
+    "text": "Median model time"
+  },
+  "md.speed.startup_s": {
+    "text": "Median startup time"
+  },
+  "md.speed.per_roundtrip_s": {
+    "text": "Median tool round-trip time"
+  },
+  "md.speed.correct": {
+    "text": "Correct speed test runs"
+  },
+  "hero.total_tokens": {
+    "text": "Total tokens"
+  },
+  "sv.speed": {
+    "text": "With speed"
+  },
+  "sv.nospeed": {
+    "text": "Without speed"
+  },
+  "zero.cheat": {
+    "text": "Cheating"
+  },
+  "zero.timeout": {
+    "text": "Timeout"
+  },
+  "zero.no_submit": {
+    "text": "No submission"
+  },
+  "zero.error": {
+    "text": "Error"
+  },
+  "zero.lie": {
+    "text": "False claim"
+  },
+  "card.title.home": {
+    "text": "VideoBench Video Editing Benchmark"
+  },
+  "card.desc.home": {
+    "text": "An AI benchmark designed by video creators. It covers 8 roles, including Footage Logging, editing, and Review, across 22 scored tasks."
+  },
+  "card.title.model": {
+    "text": "{模型名}'s video editing results"
+  },
+  "card.desc.model": {
+    "text": "Overall score, role scores, task scores, and times for {模型名} on the video editing benchmark."
+  },
+  "card.title.role": {
+    "text": "{岗位名} scores"
+  },
+  "card.desc.role": {
+    "text": "Scores, task results, and times for each AI model in the {岗位名} role."
+  },
+  "card.img.big": {
+    "text": "AI Video Editing Benchmark"
+  },
+  "card.img.small": {
+    "text": "8 roles, 22 scored tasks"
+  },
+  "first.title": {
+    "text": "Disclaimer"
+  },
+  "first.body": {
+    "text": "One shot. Each task was run once, with no averaging across runs. Scores are for reference only."
+  },
+  "first.ok": {
+    "text": "Got it"
+  },
+  "visits.total": {
+    "text": "Total visitors"
+  },
+  "first.foot": {
+    "text": "The tasks and answer keys are private. This is a personal project with no affiliation to model providers. It offers no advice on which model to choose."
+  },
+  "first.1": {
+    "text": "The benchmark covers 8 roles and 22 scored tasks drawn from one creator's editing workflow. It does not measure general ability. Results reflect the access route, reasoning effort, tool setup, and model version used during testing in November 2026. Timing also depends on network conditions and provider load at the time. This project sets its own scoring rules and reviews some tasks by hand. See the notes next to flagged results."
+  },
+  "lang.switch": {
+    "text": "ZH"
+  }
+}

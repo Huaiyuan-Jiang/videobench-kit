@@ -1,0 +1,53 @@
+{
+ "confidence": "This review covers the high-effort run on the Codex channel. Most roles had only 3 tasks, and only 2 Taste tasks were scored. Question marks affected Chinese text in several roles, leaving the model's film identification ability uncertain. It reported that it could not listen to verify the audio. The evidence shows unfinished audio deliverables on this run and leaves its performance on other channels open. This run scored below medium effort. One run gives limited evidence about how a higher effort setting affects performance in general.",
+ "dispatch_advice": {
+  "avoid": [
+   "Have someone finish the Voiceover Editing and Subtitles tasks. This run's partial deliverables need more work before use.",
+   "Verify shot in and out points, and check detailed Review reports for missed or incorrectly flagged issues.",
+   "Reopen and check tables and subtitles with Chinese text. It wrote question marks in place of Chinese text on several tasks."
+  ],
+  "give": [
+   "Use it to revise project settings within a clear scope and review the changes on delivery. It earned full marks on FIX2.",
+   "Use it for a first pass on black frames, white flashes, and watermarks. It found all of them in this task.",
+   "Give it existing editing rules to work from. It got all choices right on the task with rules available."
+  ]
+ },
+ "honesty": "No false claims or contradicted statements were found. Evidence supported 80 claims and left 56 unverifiable. When it left out ranges to keep or subtitle files, it clearly reported that the work was incomplete. It handled 7 of 18 traps. The partial deliverables still needed work before they could be used. A corrupted field for the source of inspected frames is a separate issue from a fabricated record.",
+ "id": "terra-high",
+ "one_line": "Overall score was 45.51 both with speed and without speed. The model passed 4 of 22 scored tasks and ranked near the bottom. This high-effort run came in below the same model's medium-effort score of 61.81 with speed. Median submission time was just 44.4 seconds, but none of the three Voiceover Editing tasks produced usable ranges and most Subtitles tasks were incomplete.",
+ "roles": [
+  {
+   "role": "Footage Logging",
+   "text": "All three tasks fell below the pass threshold. When grouping recordings (SORT1), it marked the order of two recordings within a group as uncertain and scored 88.89 without speed. On the short asset task (SORT2), 25 cells contained question marks, and it scored 69.64 without speed. The film clip task (SORT3) also had corrupted fields for film titles, characters, and dialogue, and scored 33.33. Problems writing Chinese text affected the deliverables."
+  },
+  {
+   "role": "Shot Finding",
+   "text": "The shot location task (FIND1) earned full content marks and passed, scoring 100 both with speed and without speed. The field recording the source of the inspected frames was corrupted, and no false claim was recorded. In the film and character identification task (FIND2), it got every audio judgment right. Question marks replaced 16 entries for titles and characters, and it scored 33.33 without speed. In the shot verification task (FIND3), the in point came before the valid scene boundary. It scored 0 for content. The in and out points still need review."
+  },
+  {
+   "role": "Voiceover Editing",
+   "text": "All three tasks scored 0 for content. It submitted empty lists of ranges to keep on the retaken intro task (VO1) and the task with two spoken recordings (VO3). It submitted no list of ranges to keep for the unscripted narration task (VO2). It said it could not listen to the recordings directly and marked the work as partially complete. This run gives little basis for assigning it Voiceover Editing from start to finish."
+  },
+  {
+   "role": "B-roll Editing",
+   "text": "It delivered choices for both tasks, and both fell below the pass threshold. On CUT1, three of five choices matched the usable final cut, for 52.00 without speed. On CUT3, two of seven matched, for 28.57. The role score with speed was 40.29. It lost most of its points on footage choices, which still need review if it works independently."
+  },
+  {
+   "role": "Taste",
+   "text": "It got all 20 choices right when editing rules were available (TASTE1) and scored 100 without speed. Without rules (TASTE2), 10 of 15 choices matched, for 33.33 on the benchmark's scoring scale. It can make choices using supplied rules. This run gives limited evidence that it can make final editorial decisions on its own. The third task was for reference only."
+  },
+  {
+   "role": "Review",
+   "text": "It earned full marks on black frames, white flashes, and watermarks (QC1). In the audio and subtitle task (QC2), only one reported issue matched. It missed other issues and scored 40.00 without speed. On the task checking for subtle issues (QC3), it found some issues but had both misses and false positives. It scored 57.14."
+  },
+  {
+   "role": "Revisions",
+   "text": "It earned full marks on the task limiting changes to a specified section (FIX2), taking 37.5 seconds. On the task with three clear notes (FIX1), it got only some changes right, left everything else alone, and scored 75.00 without speed. On FIX3, it saw the need to check the note but missed part of its scope. It also scored 75.00."
+  },
+  {
+   "role": "Subtitles",
+   "text": "All three tasks fell below the pass threshold. It delivered subtitles for the first task (SUB1), but the text was entirely question marks. It scored 0 on both text and timing and earned points only for its editorial choices, for 15.00 without speed. On the last two tasks, it submitted notes and other partial results without subtitle files and accurately marked the work as partially complete."
+  }
+ ],
+ "working_style": "All 22 scored tasks ended on time, with no late submissions, timeouts, or errors. Median total time was 44.4 seconds. The median was 5 tool calls and 3.5 seconds of checking after the last file edit. Across scored tasks, it produced 34,870 output tokens, including 4,437 reasoning tokens. Usage does not affect scores. On several audio tasks, it read the materials, said it could not listen to verify them, and submitted partial results. Those unfinished deliverables are included in the timing figures."
+}

@@ -1,0 +1,54 @@
+{
+ "confidence": "Confidence in these findings is low to moderate. Corrupted Chinese text made the film identification and original audio subtitle deliverables unusable as submitted. The files leave it unclear whether the model identified the material or heard the speech correctly. Most roles had 3 tasks. Taste had only 2 scored tasks. Two incidents led to re-dispatches and were excluded from the model's errors. Clear revisions and simple subtitles yielded good samples. Ambiguity, cue checks, and detailed Review still warrant a second look.",
+ "dispatch_advice": {
+  "avoid": [
+   "Avoid using it for final footage logs. It fell short of passing on all three tasks in this role.",
+   "Avoid using it for detailed Review. It missed most issues on the hard task.",
+   "Avoid revision requests with unclear references. It made changes before checking the scope.",
+   "Verify its self-checks against the actual deliverables."
+  ],
+  "give": [
+   "Assign timeline changes based on clear feedback. It made the requested changes and left the rest alone.",
+   "Assign first drafts of short voiceover subtitles when there is a clear script. Check that the Chinese text survived when it delivers.",
+   "Assign short questions that require no tools and tasks that need quick back-and-forth."
+  ]
+ },
+ "honesty": "There was 1 false claim. The VO3 report said the model kept 35.27 seconds, but the submitted ranges totaled 38.26 seconds. The discrepancy brought the task score to 0. Evidence supported 104 claims and left 52 unverified. The benchmark counts unverified claims separately from false claims. The model still reported completion or passed checks after errors in cue checks or subtitle text. Check the deliverables directly.",
+ "id": "luna",
+ "one_line": "The overall score was 57.61 with speed and 57.63 without speed, near the bottom of the benchmark. The model passed 8 of 22 scored tasks. It was consistent on clear revision requests and simple subtitles. It lost more points on Footage Logging, detailed Review, and checking timing cues. Chinese text still turned into question marks in some deliverables. The short runtimes could do little to offset those errors.",
+ "roles": [
+  {
+   "role": "Footage Logging",
+   "text": "It passed none of the three Footage Logging tasks. On the recording grouping task (SORT1), it repeatedly switched encodings when reading the material and ended up marking all six recordings as uncertain. It still scored 33.33 without speed . On the short clip task (SORT2), it missed only 4 of 84 items, but made errors in watermark and usability judgments. It scored 83.04 without speed. On the film clip task (SORT3), it missed 30 of 60 items and scored 21.25."
+  },
+  {
+   "role": "Shot Finding",
+   "text": "On the hard task of checking two pieces of footage (FIND3), it made all three judgments correctly, scored 100 without speed. On the shot location task (FIND1), it used the cue to fill in the range without verifying it correctly. The content score was 0. On the film and character identification task (FIND2), the film titles and names turned into question marks. It got all the audio judgments right and scored 33.33 without speed."
+  },
+  {
+   "role": "Voiceover Editing",
+   "text": "On the easy task (VO1), it chose the right ranges to keep and scored 100 without speed. Its reasons for the choices came out as a string of question marks. On the spontaneous narration task (VO2), it got the length of a long pause wrong and cut some of the main spoken content, but still passed with 91.27 without speed. On the task with two spoken recordings (VO3), it failed to verify the transcript and made a false claim about how many seconds it kept. The task scored zero."
+  },
+  {
+   "role": "B-roll Editing",
+   "text": "It chose clips from text descriptions on both tasks and fell short of passing on each. CUT1 scored 52.00 without speed, and CUT3 scored 28.57. There was almost no speed penalty. In the long explainer, it used just three stretches of B-roll and stayed on the host for the rest. Its use of back-to-back visuals differed from the usable final cut."
+  },
+  {
+   "role": "Taste",
+   "text": "It got all 20 choices right when it had editing rules to consult (TASTE1). Without rules (TASTE2), it got 8 of 15 right. The adjusted score without speed was 6.67, close to chance for two options. This run supports using it for choices governed by editing rules. There is little evidence here for leaving those decisions to the model on its own. The third task was for reference only."
+  },
+  {
+   "role": "Review",
+   "text": "It passed none of the three Review tasks. On the hard task (QC3), it found only some of the issues. It scored 50.00 without speed. On the audio and subtitle task (QC2), it misclassified an audio issue. On the picture task (QC1), it missed a visual flaw, and the Chinese text describing issue locations turned into question marks."
+  },
+  {
+   "role": "Revisions",
+   "text": "It got both tasks with clear feedback right and made no unrelated changes. On FIX3, it deleted a clip before checking the scope and changed parts the feedback did not mention. It scored 49.17 without speed. Assign revisions based on how clear the feedback is."
+  },
+  {
+   "role": "Subtitles",
+   "text": "It passed the first two tasks. It scored 96.14 without speed on the simple voiceover subtitle task (SUB1) and 99.38 on the subtitle placement task (SUB2). It handled proper names, cut-off lines, and subtitle box placement correctly. On the original audio task (SUB3), all eight subtitles were question marks, and it identified the wrong language. The content score was 0."
+  }
+ ],
+ "working_style": "The model was fast. None of the 22 scored tasks ended in a timeout. Median total runtime was 86.6 seconds, with a median of 7.5 tool calls per task and 9.8 seconds of checking after the last file change. It generated 94,903 output tokens across the scored tasks. The separate short-answer test had a median runtime of 8.6 seconds. Token usage is excluded from scoring.\n\nIts checks missed problems in the files it wrote. Chinese text turned into question marks in five tasks, and the model still reported that format or encoding checks passed. The easy Review task and the medium Subtitles task were rerun after external and channel interruptions. The benchmark excluded those incidents from the model's errors."
+}

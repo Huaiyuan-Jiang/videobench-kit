@@ -1,0 +1,52 @@
+{
+ "confidence": "Confidence in this assessment is low to moderate. The scores already include 11 reruns. The API and output limit changed, so changes in performance cannot be attributed entirely to model capability. Most roles have only 3 tasks, and Taste has only 2 scored tasks. The reruns added more submissions to evaluate. Multiple tasks show that it handles clear revision notes fairly accurately and takes a long time overall. Its content performance on tasks that ended in a timeout without a submission remains unknown.",
+ "dispatch_advice": {
+  "avoid": [
+   "Avoid tight deadlines. It still hit a timeout on 4 scored tasks after the reruns.",
+   "Keep an editor involved in footage logging, film identification, and B-roll choices. Tasks in these areas still had missing deliverables and content errors.",
+   "Double-check subtitles for original audio and records of what frames were viewed. Verify the deliverables and logs behind the completion claims."
+  ],
+  "give": [
+   "Use it to revise timelines from clear notes. It made accurate changes on the first two tasks. Check the differences after delivery.",
+   "Use it to choose between edits from a set of rules or prepare subtitles from a clear script."
+  ]
+ },
+ "honesty": "There was 1 false claim, on the FIND3 rerun. The report listed 30 images as viewed. The tool logs showed no record of opening one individual frame and one contact sheet, so the task scored 0 despite all the answers being right. Of the remaining claims, 80 were supported and 38 could not be verified. Unverifiable claims were excluded from the false claim count. It flags uncertainties for confirmation. Out-of-directory access, including searches for tools, is logged and carries no score penalty.",
+ "id": "mimo-v26pro",
+ "one_line": "After the reruns, it scored 44.07 with speed and 61.85 without speed overall. It passed 11 of the 22 scored tasks. The revisions it delivered from clear instructions were fairly accurate, but turnaround remained a major issue. Timeouts brought 4 scored tasks to zero, and a false claim about viewing frames brought another task to zero.",
+ "roles": [
+  {
+   "role": "SORT Footage Logging",
+   "text": "On the audio grouping task (SORT1), it grouped and ordered everything correctly and accurately reported that the check result. It scored 100 without speed and 98.68 with speed. It submitted the short clip logging task (SORT2) on a rerun. It filled in the corner watermark column incorrectly and made errors about which clips were usable, scoring 77.68 without speed. It still hit a timeout on the film clip logging rerun (SORT3) and did not submit all the required files."
+  },
+  {
+   "role": "FIND Shot Finding",
+   "text": "It got all the answers right on the shot location task (FIND1), scoring 100 without speed and 79.87 with speed. Its search outside the working directory was logged and no longer carries a penalty. It still hit a timeout on the film and person identification rerun (FIND2). On the shot verification rerun (FIND3), it got all the answers right, but the list of frames it claimed to have viewed did not match the tool logs. The task scored zero."
+  },
+  {
+   "role": "VO Voiceover Editing",
+   "text": "It got all the answers right on the re-recorded intro task (VO1), scoring 79.51 with speed. It still hit a timeout on the unscripted voiceover rerun (VO2). Every entry in the list of ranges to keep was right, but the report was missing, so the final score was 0. On the task with two spoken recordings (VO3), it scored 95.06 without speed on the rerun and passed. It cut some of the main spoken content, and the time penalty reduced its score to 4.76."
+  },
+  {
+   "role": "CUT B-roll Editing",
+   "text": "On the task that called for five shot choices (CUT1), it scored 28.00 without speed. It submitted the longer explainer task (CUT3) on a rerun, scoring 28.57 without speed and 23.53 with speed. It failed both tasks. Its shot sequences differed from the usable final cuts."
+  },
+  {
+   "role": "TASTE Taste",
+   "text": "It got all 20 decisions right on the task with rules provided (TASTE1), scoring 100 without speed. It submitted the task without rules (TASTE2) on a rerun and got 9 of 15 right. That converted to 20.00 without speed. It can choose between edits when the rules are clear. Its independent judgment was less consistent. The third task is for reference and does not count toward the score."
+  },
+  {
+   "role": "QC Review",
+   "text": "It got all the answers right on the first two tasks, but the time penalties were heavy. The visual review task (QC1) scored just 1.48 with speed, and the audio and subtitle review task (QC2) scored 30.75. It still hit a timeout on the hardest task (QC3) and did not submit all the files. It can spot issues, and its turnaround needs a separate check."
+  },
+  {
+   "role": "FIX Revisions",
+   "text": "It got everything right on the first two tasks, which had clear revision notes. Both scored 100 without speed. It also scored 98.70 with speed on the task that asked it to change only the named part (FIX2). On FIX3, it saw the need to check the note but missed part of its scope. It received partial credit for a score of 75.00 without speed."
+  },
+  {
+   "role": "SUB Subtitles",
+   "text": "It passed the first two Subtitles tasks. The easier task (SUB1) scored 98.93 without speed on the rerun, and the subtitle layout task (SUB2) scored 100. It submitted the original-audio subtitle task (SUB3) on time after a rerun, but failed to verify the subtitle text. It scored 37.40 without speed."
+  }
+ ],
+ "working_style": "The 11 reruns used a different API and a higher output limit, allowing the model to complete several outstanding submissions. It was still slow. Across the 18 scored tasks it submitted normally, median total time was 1633.1 seconds, with medians of 1607.3 seconds for model processing and 9.4 seconds for local commands. The median task involved 20 tool calls and 239.1 seconds of self-checking after the last file change. Across 22 scored tasks, it produced 1,684,125 output tokens and read 27,158,400 tokens from cache. Token usage does not affect the score."
+}

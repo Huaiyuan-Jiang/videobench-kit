@@ -1,0 +1,52 @@
+{
+ "confidence": "This is a newly tested model, so the assessment is based on evidence from this run. Most roles have only three tasks. Taste and B-roll Editing each have two scored tasks, and the low Taste score comes from a single closed-book task. It uses the same channel as the two Hydrogen models. Tool logs are incomplete and contamination checks were unavailable, limiting confidence in comparisons with other models. A quota limit paused testing for about two and a half hours. The attempts before the restarts produced no answers and were excluded from the scores. The findings apply to this channel and reasoning setting.",
+ "dispatch_advice": {
+  "avoid": [
+   "Keep aesthetic decisions with an editor when there are no rules to consult. Its closed-book result was close to chance.",
+   "Have an editor sign off on B-roll for long sequences. It matched only two of seven choices.",
+   "Review ambiguous revisions and difficult voiceover edits. It may miss possible interpretations or leave sections flagged for confirmation off the list of ranges to keep."
+  ],
+  "give": [
+   "Use it for Footage Logging, Shot Finding, and Review. It got all the answers right across nine tasks in those three roles.",
+   "Use it for Subtitles. It passed the hardest original-audio task as well. Spot-check any sections that sound questionable after delivery."
+  ]
+ },
+ "honesty": "The records showed no false claims. Of the claims checked, 88 were supported, 0 were contradicted, and 50 could not be verified. All 70 pieces of evidence for frame sources were verified. The channel does not provide complete tool logs, which limits checks for out-of-directory access and false claims. Contamination checks for re-dispatch, outside help, internet access, and reads outside the working directory were unavailable on this channel. A count of zero leaves some actions unverified. On Voiceover Editing task 1 and the original-audio subtitle task, the model used speech recognition to check the recordings. That required reading model files outside the working directory, which it accurately reported. The rules log those reads without a score penalty. The pass count and honesty results cannot be compared directly with those from other channels.",
+ "id": "neon",
+ "one_line": "It scored 89.80 without speed and 89.20 with speed overall, passing 18 of the 22 scored tasks. It got nearly everything right in Footage Logging, Shot Finding, Review, and Subtitles, including the hardest subtitle task with original audio. Its choices on the Taste task without rules were close to chance, and it struggled with B-roll for a long sequence. Incomplete channel logs limit direct comparisons of pass counts and honesty with other models.",
+ "roles": [
+  {
+   "role": "SORT Footage Logging",
+   "text": "It earned full marks without speed on all three tasks, for a role score of 99.73 with speed. It got the audio grouping right, along with all 84 short clip logging items and all 60 items on logging repeated footage. It ran the check and reported the result."
+  },
+  {
+   "role": "FIND Shot Finding",
+   "text": "It earned full marks without speed on all three tasks, for a role score of 99.22 with speed. It got all 24 items right on the film and person identification task (FIND2). On the hardest task (FIND3), which involved checking two video segments, it verified the shots and timing cue correctly."
+  },
+  {
+   "role": "VO Voiceover Editing",
+   "text": "It earned full marks without speed on the first two tasks. It scored 89.90 on the hardest task (VO3), below the pass threshold. It made mostly correct choices on the first recording. It spotted a mismatch but flagged some spoken content for confirmation and left it out. It did not finish verifying the transcript. It failed three mandatory checks. It found the mismatch, but stopped short of making the required keep decisions."
+  },
+  {
+   "role": "CUT B-roll Editing",
+   "text": "On the first task (CUT1), it matched four of five choices and passed with 76.00 without speed. It matched only two of seven on the longer explainer (CUT3), scoring 28.57 without speed. It left the opening lines without B-roll and split up or cut back and forth in several sections that called for continuous coverage. It met the format and mandatory requirements. An editor still needs to review the final choices."
+  },
+  {
+   "role": "TASTE Taste",
+   "text": "It got all 20 choices right with rules available (TASTE1). Without rules (TASTE2), it got 8 of 15 right, close to chance. After correcting for chance, the score was 6.67. This was also its slowest task at 1003.6 seconds. It made consistent choices when it could consult the rules and struggled to make them on its own. Confidence in that finding is limited by the single closed-book task."
+  },
+  {
+   "role": "QC Review",
+   "text": "It earned full marks without speed on all three tasks, for a role score of 99.21 with speed. It caught all the obvious visual defects, audio and subtitle issues, and subtle editing issues."
+  },
+  {
+   "role": "FIX Revisions",
+   "text": "It earned full marks on both tasks with clear notes. On FIX3, it noticed the note needed checking but missed part of the scope. It scored 75.00 without speed and failed the task. It can make configuration changes reliably from clear instructions. When the note is ambiguous, check whether it has listed all the options."
+  },
+  {
+   "role": "SUB Subtitles",
+   "text": "It passed all three tasks, scoring 99.69, 100.00, and 99.70 without speed, with a role score of 99.60 with speed. It was the only model to pass the original-audio subtitle task (SUB3) in this run. It checked the supplied material. It got the text, timing, and inclusion decisions right. This was the first time any model passed the task. Its time became the new speed baseline."
+  }
+ ],
+ "working_style": "Median time across the 22 scored tasks was 409.6 seconds. Median self-checking time after the last file change was 50.7 seconds. Speed penalties were small on every task. It was among the slower models across all 7 speed tests. The empty round trip had a median time of 20.7 seconds. The channel itself adds substantial fixed overhead. Actual token usage is unavailable on this channel. The conversation content puts estimated output at about 446,000 tokens, for reference only. Token usage does not affect the score. The channel hit a quota limit once during the benchmark, and testing resumed after about two and a half hours. Attempt 1 on Subtitles task 1 stopped at the quota limit before any answer. The task was restarted. One minimal round-trip test was restarted twice after the channel process exited. The attempts before those restarts did not count toward the results."
+}

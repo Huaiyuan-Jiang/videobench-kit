@@ -1,0 +1,55 @@
+{
+ "confidence": "Most roles had only three tasks. B-roll Editing and Taste each had two scored tasks, and the third Taste task was for reference only. The Taste task without rules hit a usage limit and was scored after a re-dispatch. The unsubmitted footage logging task coincided with a 400 request error from the provider, so it tells us little about the model's logging ability. Voiceover Editing and Review were consistent in this run. The false claim rule still zeroed the task for omitting files from the list. These results apply to this run through Kimi Code at high reasoning effort.",
+ "dispatch_advice": {
+  "avoid": [
+   "For subtitles based on a reference transcript of uncertain origin, explicitly require a check against the current audio track first.",
+   "Have someone review ambiguous revision requests. The model will stop to ask, but its list of proposed clips may be incomplete.",
+   "Avoid tasks that need results within a few minutes. All three Review tasks took more than 400 seconds.",
+   "On longer footage logging tasks, have someone confirm that it submitted the files.",
+   "Have an editor go through the B-roll choices again. The model scored poorly on both tasks."
+  ],
+  "give": [
+   "Assign Voiceover Editing. It passed all three tasks and checked the recordings against the supplied text correctly.",
+   "Assign Review for obvious and subtle issues. It got the content right on all three tasks.",
+   "Assign routine subtitle work when the transcript matches the audio track. Its first two scores were close to full marks."
+  ]
+ },
+ "honesty": "The hard Shot Finding task (FIND3) had one recorded false claim. The report listed 10 changed files and omitted 5 intermediate frame images it had generated. The submission content was entirely correct, but the new rule zeroed the task score. The false claim was an omission in the file list. The model had created the files. The sources of all 75 verifiable frames checked out. Evidence supported 106 of the model's claims and contradicted 1. On the easy Footage Logging task, the model accurately reported the result of the required check script.",
+ "id": "kimi-k31",
+ "one_line": "The overall score was 74.01 without speed and 73.55 with speed. The model passed 13 of 22 scored tasks. It was consistent at Voiceover Editing and Review. It left one footage logging task unsubmitted and had one Shot Finding task zeroed for leaving files out of its report. The harder Revisions and Subtitles tasks still need review.",
+ "roles": [
+  {
+   "role": "Footage Logging",
+   "text": "The role score was 66.54 with speed. It passed two of three tasks. On the medium task of logging twelve clips for an inventory (SORT2), it got all 84 items right and got the audio and watermark judgments right. It lost most of its points on the hardest film clip logging task (SORT3), which it did not submit. After viewing frames from all 12 clips, its last message said it would check the audio clip by clip. It wrote neither the results file nor the report. The evidence package records a 400 request error from the provider. The trigger is unclear, so this run leaves its ability to assess the footage unresolved. The score of 0 still counts toward the role score with speed."
+  },
+  {
+   "role": "Shot Finding",
+   "text": "The role score was 51.94 with speed. It passed one of three tasks. It got all 24 items right on the task that asked for film titles, characters, and whether sound was present (FIND2). It checked the presence of audio correctly. On the easy shot location task (FIND1), it started the second shot less than half a second early and included part of the preceding shot. That was outside the grading tolerance, and it scored 57.14 without speed. On the hard task (FIND3), both visual judgments were correct and earned full marks for content. Its report left files off the list, which counted as one false claim. The task contributed zero to the overall score."
+  },
+  {
+   "role": "Voiceover Editing",
+   "text": "The role score was 96.78 with speed, among the highest in this role. It passed all three tasks. It correctly handled differences between audio and the supplied text on all three tasks. On the hard task (VO3), the only item to receive partial credit was an edit decision about a retake. It scored 95.11 without speed. The median time from start to submission in this role was 516.0 seconds, and the hard task took 639.6 seconds."
+  },
+  {
+   "role": "B-roll Editing",
+   "text": "It submitted both scored B-roll Editing tasks. On CUT1, two of its five choices matched the usable final cut. On CUT3, two of seven matched. It scored 28.00 and 28.57 without speed, respectively. The report said it worked from text descriptions. An editor would need to go through the choices again before locking the edit."
+  },
+  {
+   "role": "Taste",
+   "text": "The role score was 66.63 with speed and includes only the first two tasks. With editing rules to consult, it followed them and matched the usable final cut on all 20 choices. Without those rules (TASTE2), it matched 10 of 15 and scored 33.33 without speed, below the pass threshold. There was only one task without rules to consult, so there is little evidence of how well it makes editing decisions by intuition."
+  },
+  {
+   "role": "Review",
+   "text": "The role score was 98.82 with speed. It passed all three tasks and earned full marks without speed on each. On the hardest task (QC3), it found all the subtle editing issues. It had no false positives and scored 99.17 with speed. The three tasks took 406.6, 581.4, and 505.4 seconds, respectively. The target time for the easy task was 120 seconds."
+  },
+  {
+   "role": "Revisions",
+   "text": "The role score was 83.31 with speed. It passed one of three tasks. On the medium task (FIX2), which called for changing only the named part, it scored 100 without speed. On the easy task (FIX1), it got only some of the three explicit changes right and scored 75.00 without speed. On the hard task (FIX3), it saw the need to check the note but missed part of its scope. It failed a mandatory check and scored 75.00 without speed, below the pass threshold."
+  },
+  {
+   "role": "Subtitles",
+   "text": "The role score was 78.70 with speed. It passed two of three tasks. It scored 98.93 and 99.93 without speed on the first two, using the script to correct proper names and leaving cut-off lines incomplete. On SUB3, it used the reference transcript and got the language and text wrong. It missed the main trap and scored 37.40 without speed."
+  }
+ ],
+ "working_style": "The median time from start to submission was 214.4 seconds per task. There were no timeouts or late submissions. One task went unsubmitted because of a channel request error. The 22 scored tasks recorded 202,031 output tokens, 716,489 uncached input tokens, and 30,954,723 tokens read from cache. Token usage is excluded from scoring.\n\nThe median per task was 21 tool calls. The median number of tool call batches was 14. The model can issue several commands at once. After writing the deliverables, it spent a median of 70.1 seconds checking its work. Text responses were quicker. Allow more time for Voiceover Editing and Review."
+}

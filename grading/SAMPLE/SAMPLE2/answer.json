@@ -1,0 +1,204 @@
+{
+  "groups": [
+    {
+      "bad_kind": "too_many",
+      "bigger_change": "A",
+      "decided_on": "2026-11-11",
+      "id": "g01",
+      "open_book": true,
+      "pick": "B",
+      "shorter": "B",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_long",
+      "bigger_change": "B",
+      "decided_on": "2026-11-11",
+      "id": "g02",
+      "open_book": true,
+      "pick": "B",
+      "shorter": "A",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_long",
+      "bigger_change": "A",
+      "decided_on": "2026-11-11",
+      "id": "g03",
+      "open_book": true,
+      "pick": "A",
+      "shorter": "B",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_long",
+      "bigger_change": "A",
+      "decided_on": "2026-11-11",
+      "id": "g04",
+      "open_book": true,
+      "pick": "A",
+      "shorter": "B",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_long",
+      "bigger_change": "B",
+      "decided_on": "2026-11-11",
+      "id": "g05",
+      "open_book": true,
+      "pick": "B",
+      "shorter": "A",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_many",
+      "bigger_change": "A",
+      "decided_on": "2026-11-11",
+      "id": "g06",
+      "open_book": true,
+      "pick": "B",
+      "shorter": "B",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_many",
+      "bigger_change": "B",
+      "decided_on": "2026-11-11",
+      "id": "g07",
+      "open_book": true,
+      "pick": "A",
+      "shorter": "A",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_long",
+      "bigger_change": "B",
+      "decided_on": "2026-11-11",
+      "id": "g08",
+      "open_book": true,
+      "pick": "B",
+      "shorter": "A",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_many",
+      "bigger_change": "A",
+      "decided_on": "2026-11-11",
+      "id": "g09",
+      "open_book": true,
+      "pick": "B",
+      "shorter": "B",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_many",
+      "bigger_change": "B",
+      "decided_on": "2026-11-11",
+      "id": "g10",
+      "open_book": true,
+      "pick": "A",
+      "shorter": "A",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_many",
+      "bigger_change": "A",
+      "decided_on": "2026-11-11",
+      "id": "g11",
+      "open_book": true,
+      "pick": "B",
+      "shorter": "B",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_many",
+      "bigger_change": "B",
+      "decided_on": "2026-11-11",
+      "id": "g12",
+      "open_book": true,
+      "pick": "A",
+      "shorter": "A",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_many",
+      "bigger_change": "B",
+      "decided_on": "2026-11-11",
+      "id": "g13",
+      "open_book": true,
+      "pick": "A",
+      "shorter": "A",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_many",
+      "bigger_change": "A",
+      "decided_on": "2026-11-11",
+      "id": "g14",
+      "open_book": true,
+      "pick": "B",
+      "shorter": "B",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_long",
+      "bigger_change": "B",
+      "decided_on": "2026-11-11",
+      "id": "g15",
+      "open_book": true,
+      "pick": "B",
+      "shorter": "A",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_long",
+      "bigger_change": "A",
+      "decided_on": "2026-11-11",
+      "id": "g16",
+      "open_book": true,
+      "pick": "A",
+      "shorter": "B",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_long",
+      "bigger_change": "A",
+      "decided_on": "2026-11-11",
+      "id": "g17",
+      "open_book": true,
+      "pick": "A",
+      "shorter": "B",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_many",
+      "bigger_change": "B",
+      "decided_on": "2026-11-11",
+      "id": "g18",
+      "open_book": true,
+      "pick": "A",
+      "shorter": "A",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_long",
+      "bigger_change": "B",
+      "decided_on": "2026-11-11",
+      "id": "g19",
+      "open_book": true,
+      "pick": "B",
+      "shorter": "A",
+      "source_note": "样题：合成的断行标准"
+    },
+    {
+      "bad_kind": "too_long",
+      "bigger_change": "A",
+      "decided_on": "2026-11-11",
+      "id": "g20",
+      "open_book": true,
+      "pick": "A",
+      "shorter": "B",
+      "source_note": "样题：合成的断行标准"
+    }
+  ]
+}

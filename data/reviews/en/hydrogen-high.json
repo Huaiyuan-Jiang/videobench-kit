@@ -1,0 +1,52 @@
+{
+ "confidence": "This is a new model in the benchmark, and the review is based on this run's evidence. Most roles had only three tasks. Taste and B-roll Editing each had two scored tasks. The model got the findings right on the Review task, but the timeout zeroed its score because it failed to submit on time. Image attachments and incomplete logs limit comparisons with other models. These results apply to this channel and reasoning setting.",
+ "dispatch_advice": {
+  "avoid": [
+   "Watch the deadline on Review tasks. A timeout can zero the score even when every finding is correct.",
+   "Listen back to the audio on difficult Voiceover Editing and original audio subtitle tasks. The model left an edit decision open on the former and reused the wrong transcript on the latter.",
+   "Have an editor review final B-roll choices and judgment calls where there are no editing rules to consult."
+  ],
+  "give": [
+   "Assign Footage Logging and Shot Finding tasks, then spot-check the specific film titles.",
+   "Assign configuration changes based on clear feedback. It got both tasks right."
+  ]
+ },
+ "honesty": "The records showed zero false claims. Evidence supported 84 claims, contradicted 0, and left 54 unverified. The sources of 61 pieces of visual evidence could be verified. The channel omits some tool calls, so the checks for out-of-directory access and false claims are incomplete. The recorded count of zero covers only what could be checked. Pass counts and honesty cannot be compared directly with results from other channels.",
+ "id": "hydrogen-high",
+ "one_line": "The overall score was 81.54 without speed and 81.35 with speed. The model passed 15 of 22 scored tasks. It was consistent at Footage Logging and Shot Finding. It found every issue on one Review task but received zero after a timeout. Incomplete channel logs limit direct comparisons of pass counts and honesty with other models.",
+ "roles": [
+  {
+   "role": "Footage Logging",
+   "text": "It passed all three tasks, with a role score of 98.67 without speed. It earned full marks for grouping recordings and logging short clips. It reported the check result accurately. In the film clip logging task (SORT3), it got 58 of 60 items right and scored 96.00 without speed. Both errors were in the titles of two clips."
+  },
+  {
+   "role": "Shot Finding",
+   "text": "It earned full marks without speed on all three tasks. The role score with speed was 99.88. It got all 24 items right on the film and character identification task (FIND2). On the harder shot verification task (FIND3), it verified the shots and timing cue correctly."
+  },
+  {
+   "role": "Voiceover Editing",
+   "text": "It earned full marks without speed on the first two tasks. On the hard task (VO3), it scored 89.90, below the pass threshold. It compared audio features and spotted a mismatch with the transcript. It flagged some spoken content for manual confirmation and left it off the list of ranges to keep. It failed both the check for missing main spoken content and the check against the audio. It spotted the problem and left the edit decision unresolved."
+  },
+  {
+   "role": "B-roll Editing",
+   "text": "Both tasks fell below the pass threshold. On CUT1, 3 of its 5 choices matched the usable final cut, for 52.00 without speed. On the long explainer task (CUT3), 2 of 7 matched, for 28.57 without speed. It submitted a plan and met the mandatory requirements. Its choices still differed substantially from the usable final cuts, so an editor needs to review the final choices."
+  },
+  {
+   "role": "Taste",
+   "text": "It got all 20 choices right when it had editing rules to consult (TASTE1). Without those rules (TASTE2), it matched 9 of 15 choices and scored 20.00 without speed. It made better choices with rules to follow. The test included only one task without rules, so the result has limited reach."
+  },
+  {
+   "role": "Review",
+   "text": "It earned full marks without speed on the audio and subtitle task and on the task focused on subtle errors. It also found all the issues on QC1. It took 3676.6 seconds and was stopped at the time limit, which zeroed the task score. The role score was therefore 66.67 even without speed. The findings were correct, and the submission still missed the deadline."
+  },
+  {
+   "role": "Revisions",
+   "text": "It earned full marks for content on both tasks with clear feedback. On FIX3, it noticed the note needed checking but missed part of the scope. It scored 75.00 without speed and fell short of passing. It can update configurations when the instructions are clear. When it asks for confirmation, check whether its options cover all plausible readings."
+  },
+  {
+   "role": "Subtitles",
+   "text": "It passed the first two tasks with scores of 98.68 and 96.56 without speed. It submitted subtitles for the original audio task (SUB3), but reused the reference transcript. It lost points for both content and timing and scored 37.20 without speed. It explained how it matched the text to the start and end of the speech, but still needed to verify the words in the recording."
+  }
+ ],
+ "working_style": "Excluding the task that timed out, the median runtime was 220.4 seconds. After the last file change, the model spent a median of 24.0 seconds checking its work. It generated 352,000 output tokens across the scored tasks. Token usage is excluded from scoring. Tool call counts are unavailable, and viewing images requires sending attachments. Most tasks incurred small speed penalties. The Review timeout shows why it also matters whether the model submits on time after it has finished writing. The median alone misses that."
+}

@@ -1,0 +1,154 @@
+{
+  "SORT": {
+    "name": "Footage Logging",
+    "what": "Tests whether models can log raw video, images, and recordings before editing. Can they identify the content, check for audio, flag duplicates, and tell which assets are usable?",
+    "desc": "Before editing, you need to know what each file contains, whether you can use it, and where it fits. Mistakes in the log can lead to using the wrong asset or repeating the same shot. All three tasks in this role require a footage log. We score it cell by cell against the answer key. A high score shows that, on these tasks, the model can inspect footage, check for audio, and fill out the log accurately.",
+    "tasks": {
+      "SORT1": {
+        "title": "Group and order recordings",
+        "desc": "The model gets several recordings with transcripts of only the beginning and end of each. It assigns each recording to one of two episodes, puts the recordings for each episode in order, and flags any that belong to neither. It also runs a provided check script and reports whether it ran successfully. We score the grouping, the order, and the accuracy of the check report."
+      },
+      "SORT2": {
+        "title": "Log short-form assets",
+        "desc": "The model gets short videos, images, and a narration script that needs visuals. It logs each asset's type (screen recording, live footage, film clip, or image), orientation (landscape or portrait), and whether it has audible sound or a persistent corner watermark from another platform or organization. It also notes whether each asset is usable, which line it suits, and which other asset it duplicates. We check the accuracy of the log and whether the model inspected the visuals and checked the audio before making those judgments."
+      },
+      "SORT3": {
+        "title": "Log film clips and check for duplicates",
+        "desc": "The model gets film clips and a list of characters. It identifies each clip's film and character, records whether anyone speaks, and finds repeated footage from the same film. It reports how many seconds overlap and logs which footage it inspected. We score the accuracy of the film titles, characters, dialogue checks, and matches for repeated footage."
+      }
+    }
+  },
+  "FIND": {
+    "name": "Shot Finding",
+    "what": "Tests whether models can locate a shot from a short description. A shot is a continuous stretch of footage. Models report its start and end times in seconds and identify the film and character in a clip.",
+    "desc": "A director may ask an editor to find a shot with a single line. They may also ask which film a clip comes from or who appears in it. Time clues can be unreliable, so the editor needs to check the footage. A high score shows that, on these tasks, the model can find and identify footage accurately and report when a shot is missing.",
+    "tasks": {
+      "FIND1": {
+        "title": "Find shots from descriptions",
+        "desc": "The model gets a match video, two shot descriptions, and a note with a suggested timestamp. It finds both shots, reports their start and end times in seconds, and checks the timestamp in the note. It also logs which footage it inspected. We score whether the shots match the descriptions and whether the start and end times are accurate."
+      },
+      "FIND2": {
+        "title": "Identify films and characters",
+        "desc": "The model gets short film clips and a list of characters. It logs the official Chinese title of each film, the character from the list (or none, if no match), and whether the file has audible sound. We score the film and character matches. The audio check must use the file itself."
+      },
+      "FIND3": {
+        "title": "Find shots and verify timestamps",
+        "desc": "The model gets a four-minute video, two shot descriptions, and a note with timestamps. It reports whether each shot is present, gives its start and end times in seconds, and checks the times in the note. We score exact matches and accurate reporting based on the footage. Similar-looking shots do not count."
+      }
+    }
+  },
+  "VO": {
+    "name": "Voiceover Editing",
+    "what": "Tests whether models can clean up a recording of someone speaking to camera by listing the sections to keep.",
+    "desc": "Voiceover here means someone speaking to camera. These recordings often include retakes, chatter, and long pauses. The editor decides which takes to keep and which lines to cut while preserving useful content and complete words. For this role, the editor submits a list of ranges to keep and explains the choices. No video export is required. The recording, auto-generated transcript, and supplied script need to be checked against one another. A high score shows that the model picked the right sections to keep on these tasks.",
+    "tasks": {
+      "VO1": {
+        "title": "Edit an intro with multiple takes",
+        "desc": "The model gets an intro recording, accompanying text, and editing rules. The same line is spoken several times. The model submits a list of ranges to keep and identifies which take it chose. We check that the selected lines are complete, the choice follows the rules, and the ranges are in order and do not overlap."
+      },
+      "VO2": {
+        "title": "Edit a full voiceover to a brief",
+        "desc": "The model gets a full speech recording, a script excerpt, and an editing brief. It submits a list of ranges to keep and explains which source it followed, whether the script and audio agree, and how it would handle breaths between lines. We check that it preserves all the main spoken content, removes false starts, chatter, and long pauses, and follows the brief."
+      },
+      "VO3": {
+        "title": "Verify the audio against the transcript",
+        "desc": "The model gets two speech recordings and auto-generated transcripts. It edits the main spoken content and submits a list of ranges to keep. For one recording, it reports whether the transcript matches the audio, whether the audio actually contains repeats, and which source it followed. We check those judgments and whether the selected ranges cover every line that should be kept."
+      }
+    }
+  },
+  "CUT": {
+    "name": "B-roll Editing",
+    "what": "Tests whether models can choose visuals for narration and plan the visuals and demo clips for a full section while following asset restrictions.",
+    "desc": "When adding visuals to narration, editors decide what suits each line and follow the limits on how assets can be used. Two tasks in this round provide written descriptions only. One asks the model to pick clips, and the other asks it to plan visuals for an extended narration. We score how closely the plan matches the usable final cut and whether it follows the asset restrictions. Both tasks count toward the B-roll Editing role score and the overall quality score.",
+    "tasks": {
+      "CUT1": {
+        "title": "Pick visuals for five passages",
+        "desc": "The model gets five narration passages with no assigned visuals, scene notes, and written descriptions of six candidate clips per passage. It picks one clip per passage and submits a table of its choices. Each clip can be used only once. We score the fit of the clips and whether the choices follow the asset restrictions."
+      },
+      "CUT2": {
+        "title": "Plan visuals and demo clips",
+        "desc": "The model gets the text and timings for eight lines of narration, along with candidate clips, allowed cut points, and music notes. It maps visuals to each line and decides where each demo goes and where it starts and ends. It also chooses whether to use original audio, silence, or music, and whether to freeze the image first. We check how closely these decisions match the director's original choices, whether the plan stays within the allowed clip ranges, and whether any shot is shorter than 0.5 seconds."
+      },
+      "CUT3": {
+        "title": "Plan visuals for extended narration",
+        "desc": "The model gets the text and timings for twenty-two lines of narration, descriptions of candidate assets, and limits on their use. It plans the visuals and demo clips for the full passage. We compare the plan with the usable final cut and check for reused or prohibited assets, use outside allowed clip ranges, and shots shorter than 0.5 seconds."
+      }
+    }
+  },
+  "TASTE": {
+    "name": "Taste",
+    "what": "Tests whether a model's choice between two editing options matches the one used in the usable final cut.",
+    "desc": "There are often several ways to edit the same passage. The editor has to judge which option best fits the usable final cut. The first two tasks describe pairs of choices in writing. The first supplies the director's editing rules. The second relies on the model's judgment alone. With two choices, guessing gets half right on average, so the content score counts only correct answers above chance. Half right scores 0 and all right scores 1. A high score means the model's choices were closer to those used in the usable final cut. The third task requires watching footage. Its results are for reference only this round and do not count toward the role score or recommendations.",
+    "tasks": {
+      "TASTE1": {
+        "title": "Choose edits using the rules",
+        "desc": "The model gets written descriptions of twenty real editing decisions, each with two options, plus a set of editing rules. It submits a table with one choice per decision. We score whether it picks the option that best fits the rules."
+      },
+      "TASTE2": {
+        "title": "Choose edits by judgment",
+        "desc": "The model gets written descriptions of fifteen real editing decisions, each with two options. It submits a table of choices without being given rules. We score whether it picks the most suitable edits without written criteria."
+      },
+      "TASTE3": {
+        "title": "Choose the best in and out points",
+        "desc": "The model gets three demo clips with original audio. Each has four versions with different in and out points. After watching all the versions, it selects one per clip and submits a table of choices and a log of the footage it watched. It can also rank the versions. We check whether it picks the versions with the best in and out points. Results are for reference only this round and do not count toward scores."
+      }
+    }
+  },
+  "QC": {
+    "name": "Review",
+    "what": "Tests whether models can spot picture, audio, and subtitle issues before delivery and give accurate timestamps.",
+    "desc": "Before delivery, editors check for sudden black frames, white flashes, audio dropouts, and subtitles that are out of sync with speech. Timestamps let editors find and fix each issue. A review needs to catch all the issues while avoiding false positives. A high score shows that the model can find issues within the scope of these tasks and provide timestamps and screenshots that can be verified.",
+    "tasks": {
+      "QC1": {
+        "title": "Check for visible defects",
+        "desc": "The model gets a short video and a set of review rules. It looks for three issues: sudden black frames, white flashes, and TV or platform corner watermarks. It lists the type, start and end times in seconds, and on-screen location of each issue, with one screenshot per issue. We check for missed issues and false positives, and verify the times and screenshots."
+      },
+      "QC2": {
+        "title": "Check audio and subtitles",
+        "desc": "The model gets a short video, a separate subtitle file, and a set of review rules. It looks for three issues: sections where the source audio is completely silent, sudden drops in volume, and subtitle timing that does not match the speech. It submits a list of issues. We check the audio measurements, the subtitle timing checks, and whether the reported types, times, and locations make the issues easy to find."
+      },
+      "QC3": {
+        "title": "Spot subtle editing issues",
+        "desc": "The model gets a short video and a glossary of proper names. It looks for three issues: stray frames at cuts, repeated footage, and misspelled proper names in the subtitles. A frame is one still image in a video. There are dozens per second, so a few stray frames pass in a flash. The model submits an issue list and screenshots. For repeated footage, it reports both timestamps. We check for missed issues and false positives and verify the evidence."
+      }
+    }
+  },
+  "FIX": {
+    "name": "Revisions",
+    "what": "Tests whether models can apply feedback to an edit project file. The file records where each asset goes and how long it plays. The model needs to make only the requested changes and ask for clarification when feedback is unclear.",
+    "desc": "Revising an edit means applying the director's feedback in the right places and preserving sections that are already approved. These tasks provide feedback and an edit project file listing where each asset goes and how long it plays. The model submits the revised file and a summary of changes. No video export is required. A high score shows that the model made the requested changes accurately, preserved the rest, and asked for clarification when needed.",
+    "tasks": {
+      "FIX1": {
+        "title": "Apply three clear notes",
+        "desc": "The model gets an edit project file, editing rules, and three specific revision notes. It submits the revised file and reports how many changes it made. Half the score is for making the requested changes correctly. Half is for preserving everything outside their scope. We also verify the reported change count."
+      },
+      "FIX2": {
+        "title": "Revise the specified section",
+        "desc": "The model gets an edit project file and revision notes that apply to just one part of it. It submits the revised file and a change count. We check whether it found the right section, made the requested changes, and preserved the rest. Correct changes and preservation each account for half the score."
+      },
+      "FIX3": {
+        "title": "Clarify which clip to change",
+        "desc": "The model gets an edit project file, a revision note, and editing rules. The model submits the file and a change summary, and flags any sections that need checking. We score how accurately it identifies the scope of the note and how it handles the revision."
+      }
+    }
+  },
+  "SUB": {
+    "name": "Subtitles",
+    "what": "Tests whether models can create accurate, well-timed, single-line subtitles and place them appropriately on screen, using what was actually said.",
+    "desc": "Subtitling starts with checking what was said and when. It also involves spelling proper names such as people and places, deciding where to split sentences, and placing subtitles on screen. The model submits a subtitle file and explains its choices. Some tasks also require the on-screen position of the subtitle box. The supplied transcript and script can differ from the audio, so the model has to check each against the recording. A high score shows that the model gets the words and timings right and follows length and placement requirements.",
+    "tasks": {
+      "SUB1": {
+        "title": "Proofread voiceover subtitles",
+        "desc": "The model gets a speech recording, an auto-generated transcript, an accompanying script, and subtitle rules. It submits a single-line subtitle file and identifies the source it used for the text. We check wording and proper names, whether each subtitle covers the corresponding speech, and whether line lengths and breaks follow the rules."
+      },
+      "SUB2": {
+        "title": "Proofread and position subtitles",
+        "desc": "The model gets a speech recording, reference text, a video frame, and the position of existing on-screen subtitles. It submits a single-line subtitle file, explains its choices, and gives the position of the subtitle box, the area of the screen where the subtitles appear. We check the text and timing and verify that the box stays entirely within the frame and avoids the existing subtitles."
+      },
+      "SUB3": {
+        "title": "Subtitle the audio in the clip",
+        "desc": "The model gets a clip with its original audio, a reference transcript, and accompanying text. It submits a single-line subtitle file, identifies the spoken language, and names the source for the subtitle text. We score whether the model verifies words and timings against the audio, identifies the language, checks proper names, and follows subtitle length and speech coverage requirements."
+      }
+    }
+  }
+}

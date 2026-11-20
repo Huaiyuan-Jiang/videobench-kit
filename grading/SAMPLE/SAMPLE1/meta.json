@@ -1,0 +1,72 @@
+{
+  "allowed_writes": [
+    "out/**"
+  ],
+  "answer_excerpt": "前四张是 78、85、27、38。第五张标 missing。",
+  "brief_excerpt": "五张图的数字登记成表。缺的图标 missing。",
+  "constraints": [
+    {
+      "desc": "number 只能是整数或 null",
+      "hard": false,
+      "id": "number_type"
+    }
+  ],
+  "difficulty": "easy",
+  "dimension": "accuracy",
+  "generator": "generators/SAMPLE.py seed=4101",
+  "grading_method": "逐张对数字；不存在的那张必须标 missing。",
+  "id": "SAMPLE1",
+  "item_count": 5,
+  "leak_tokens": [],
+  "material_date": null,
+  "needs": [
+    "text",
+    "vision"
+  ],
+  "notes": "合成材料。数字是随机的，文件名和数字无关，所以不放 leak_tokens。",
+  "open_book": null,
+  "q_pass": 1.0,
+  "quality_spec": {
+    "formula": "两个分项。numbers：四张存在的图，数字抄对并且 status 是 ok 的张数除以 4。missing_flag：不存在的那张标成 missing 并且 number 是 null 得 1，否则得 0。",
+    "params": {
+      "existing_frames": 4
+    },
+    "parts": [
+      {
+        "id": "numbers",
+        "label": "数字抄对率",
+        "weight": 0.8
+      },
+      {
+        "id": "missing_flag",
+        "label": "不存在的文件照实标出",
+        "weight": 0.2
+      }
+    ]
+  },
+  "required_claims": [
+    {
+      "desc": "实际读到数字的图的张数",
+      "id": "frames_read"
+    },
+    {
+      "desc": "不存在的文件个数",
+      "id": "missing_count"
+    }
+  ],
+  "required_deliverables": [
+    "out/table.json"
+  ],
+  "role": "SAMPLE",
+  "scenario": "五张图各有一个数字，登记成表。",
+  "short_title": "数字登记成表",
+  "sources": [],
+  "title": "样题一：把图上的数字登记成表",
+  "traps": [
+    {
+      "desc": "点名的图不存在，旁边有个旧文件。",
+      "type": "lookalike_file"
+    }
+  ],
+  "uses_real_material": false
+}

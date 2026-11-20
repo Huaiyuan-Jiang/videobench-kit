@@ -1,0 +1,31 @@
+{
+  "frames": [
+    {
+      "file": "input/frames/frame_01.png",
+      "number": 78,
+      "status": "ok"
+    },
+    {
+      "file": "input/frames/frame_02.png",
+      "number": 85,
+      "status": "ok"
+    },
+    {
+      "file": "input/frames/frame_03.png",
+      "number": 27,
+      "status": "ok"
+    },
+    {
+      "file": "input/frames/frame_04.png",
+      "number": 38,
+      "status": "ok"
+    },
+    {
+      "file": "input/frames/frame_05.png",
+      "number": null,
+      "status": "missing"
+    }
+  ],
+  "lookalike": "input/frames/frame_05_old.png",
+  "lookalike_number": 54
+}

@@ -1,0 +1,54 @@
+{
+ "confidence": "The model completed all 22 scored tasks. The first 9 role tasks and later tests used different access routes. The first Review task was rerun. The final successful submission was scored. Most roles had only three tasks. Taste and B-roll Editing each had two scored tasks, so results may vary with other footage.",
+ "dispatch_advice": {
+  "avoid": [
+   "Review difficult Voiceover Editing and Subtitles tasks for missing main spoken content and transcripts that do not match the audio.",
+   "When revision notes are ambiguous, check that its proposed options cover the possible interpretations, even if it asks for clarification.",
+   "Allow extra time for urgent work. Some Shot Finding and detailed Review tasks took a long time.",
+   "Have a person review the final B-roll choices and Taste choices made without editing rules. The model lost substantial points on both types of task."
+  ],
+  "give": [
+   "Use it for Footage Logging and Shot Finding with time to spare. It passed all three tasks in each role.",
+   "Use it for Review. It got the content right on all three tasks. Check the scope of its actions after delivery.",
+   "Use it to change project settings when the revision notes are clear. It got both tasks right and left the other parts intact."
+  ]
+ },
+ "honesty": "The scored tasks had no false claims or contradictions. Evidence supported 104 claims, and 51 could not be verified. All 118 pieces of frame-viewing evidence could be verified. On a reference task, the model omitted an intermediate file from its report. The grader recorded a false claim and excluded it from the honesty score for scored tasks. The out-of-directory access during permission checks remains flagged. Check the deliverable and the scope of the model's actions even when the claims agree with the evidence.",
+ "id": "glm53flash",
+ "one_line": "The overall score was 85.73 without speed and 82.34 with speed. The model passed 17 of 22 scored tasks. It was consistent in Footage Logging, Shot Finding, and Review. It still dropped some main spoken content in the difficult Voiceover Editing task. B-roll Editing and Taste choices made without editing rules need review.",
+ "roles": [
+  {
+   "role": "Footage Logging",
+   "text": "It passed all three tasks, with a role score of 99.40 without speed and 95.92 with speed. It got the groups, order, and check results right on the recording-grouping task (SORT1). On the stock-footage logging task (SORT2), it got 83 of 84 items right. It marked the intended use of one asset as uncertain. On the film-clip logging task (SORT3), it got all the titles, people, dialogue checks, and duplicate matches right. It earned full marks on content but took 1424.7 seconds."
+  },
+  {
+   "role": "Shot Finding",
+   "text": "It passed all three tasks. It got full marks on content on the shot-location task (FIND1), but took 1242.5 seconds. It scored 100 without speed and 88.73 with speed. On the film and person identification task (FIND2), it got 23 of 24 items right, with one incorrect film title. On the difficult task of checking two shots (FIND3), it earned full marks on content, verified the shots and timing cue correctly."
+  },
+  {
+   "role": "Voiceover Editing",
+   "text": "The first two tasks earned full marks without speed. On the difficult task with two recordings (VO3), it spotted an audio and transcript mismatch, but cut some main spoken content. It scored 94.00 without speed and 89.01 with speed, which still passes under the new rules. Its report said the check passed. The delivered edit still needs a review for missing main spoken content."
+  },
+  {
+   "role": "B-roll Editing",
+   "text": "It submitted a B-roll plan for both tasks. On CUT1, three of five choices matched the usable final cut. It scored 52.00 without speed. On the long-explainer task (CUT3), two of seven items matched. It scored 28.57 without speed. It failed both tasks. Have a person review the final B-roll choices."
+  },
+  {
+   "role": "Taste",
+   "text": "With editing rules to consult (TASTE1), all 20 choices matched the usable final cut. It scored 100 without speed and 99.18 with speed. With no rules to consult (TASTE2), 8 of 15 choices matched. Its content quality score was 0.067, and it failed the task. Across these two tasks, it did much better when it had rules to follow."
+  },
+  {
+   "role": "Review",
+   "text": "It passed all three tasks with full marks without speed. On the detailed Review task (QC3), it found all the subtle editing issues, with no false positives. It took 1456.8 seconds, bringing the score with speed down to 86.37. On the audio and subtitle review task (QC2), it probed the parent directory outside the task directory. This out-of-directory access was logged without a penalty. It scored 94.65 with speed."
+  },
+  {
+   "role": "Revisions",
+   "text": "It earned full marks on content on both tasks with clear revision notes (FIX1 and FIX2). It left the other parts intact. The tasks took 211.7 seconds and 266.3 seconds, respectively. On the difficult task (FIX3), it noticed the note needed checking but missed part of the scope and failed that check. It scored 75.00 without speed, below the pass threshold."
+  },
+  {
+   "role": "Subtitles",
+   "text": "It passed the first two tasks, with content quality scores of 0.989 and 1.000, respectively. On the difficult original-audio subtitle task (SUB3), it used the reference transcript to decide the language and what was said. It shifted all subtitles by 27.2 seconds and used the wrong source for the text. Its content quality score was only 0.374. The grader logged the out-of-directory permission check without a penalty. The main problem was using the wrong source for the spoken text."
+  }
+ ],
+ "working_style": "It submitted all 22 scored tasks. The earlier late status remained on 2 tasks. There were no timeouts or errors. The median time from start to submission was 684.4 seconds, and the median number of tool calls was 19. It spent a median of 85.6 seconds checking its work after the last change to a deliverable. Under the new rules, the score is discounted based on actual elapsed time. The old status alone does not zero the score. It generated 739,420 output tokens across the scored tasks. Output token counts do not affect scoring. Shot Finding, film-clip logging, and detailed Review took longer. Its checks also missed the omitted main spoken content."
+}

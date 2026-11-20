@@ -1,0 +1,2 @@
+Pillow
+# optional: fontTools (embed fonts in the site), playwright (preview image)

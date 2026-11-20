@@ -1,0 +1,3 @@
+#!/bin/sh
+# Refuse a commit message that contains a path, e-mail address, id or secret.
+exec python -B tools/leakcheck.py --message "$1"
